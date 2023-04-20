@@ -1,14 +1,12 @@
 <template>
     <div>
-        <div class="head">
-
-        </div>
+        首页
     </div>
 </template>
 
 <script>
 export default {
-    name: 'HeadNavigation',
+    name: 'OnePage',
 
     data() {
         return {
@@ -27,10 +25,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.head{
-    width: 100%;
-    height: 5%;
-    background-color:aquamarine;
-}
 
 </style>

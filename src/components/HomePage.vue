@@ -1,112 +1,110 @@
 <template>
   <div>
-    <div class="head">
-      <div class="logo">
-        <img
-          src="../../public/mag/16UHJ4)6(8IX3MXHM[9XERU.png"
-          alt=""
-          class="logo"
-        />
-      </div>
-      <div class="xcv">
-        <el-menu
-        :default-active="activeIndex"
-          class="el-menu-demo"
-          mode="horizontal"
-          color="#000"
-          @select="handleSelect"
-        >
-          <el-menu-item index="1" class="kk">首页</el-menu-item>
-          <el-menu-item index="2" class="kk">面经</el-menu-item>
-          <el-menu-item index="3" class="kk">学习</el-menu-item>
-          <el-menu-item index="4" class="kk">哈哈哈</el-menu-item>
-        </el-menu>
-      </div>
-      <div class="right1">
-       
-      </div>
+    <Row class="top">
+      <Col span="4">
+        <div class="logo">
+          <img src="../../public/mag/16UHJ4)6(8IX3MXHM[9XERU.png" class="img" />
+        </div>
+      </Col>
+      <Col span="14">
+        <Menu mode="horizontal" :theme="theme1" active-name="1">
+          <MenuItem name="1" @click="shouye">
+            <Icon type="ios-paper" color="#037CFF" size=16 />
+            首页
+          </MenuItem>
+          <MenuItem name="2">
+            <Icon type="ios-book" color="#009961" size=16 />
+            面试八股
+          </MenuItem>
+          <MenuItem name="3">
+            <Icon type="ios-construct" color="#E5010F" size=16 />
+            技能树
+          </MenuItem>
+          <Submenu name="4">
+            <template slot="title" >
+              <Icon type="ios-stats" color="#5FC948" size=16 />
+              学习
+            </template>
+            <MenuItem name="3-1"><Icon type="ios-paper" color="#419F4E" />课程推荐</MenuItem>
+            <MenuItem name="3-2"><Icon type="ios-paper" color="#0E4740"/>项目实战</MenuItem>
+            <MenuItem name="3-3"><Icon type="ios-paper" color="#FC8A15"/>书籍推荐</MenuItem>
+          </Submenu>
+
+        </Menu>
+      </Col>
+
+      <Col span="6">
+        <div class="topright">
+          <Row >
+            <Col span="6">col-8</Col>
+            <Col span="6">col-8</Col>
+            <Col span="6">col-8</Col>
+            <Col span="6">col-8</Col>
+          </Row>
+        </div>
+      </Col>
+    </Row>
+
+    <div class="center">
+     <router-view></router-view>
     </div>
-    <div class="center"></div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "HomePage",
 
+ 
   data() {
     return {
-      activeIndex: "1",
+      theme1: "light",
     };
   },
 
   mounted() {},
 
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
+    shouye(){
+      
+    }
   },
 };
 </script>
 
 <style lang="css" scoped>
-.head {
-  display: flex;
-  width: 100%;
-  height: 8vh;
-  background-color: #ffffff;
+.top {
+
   align-items: center;
 }
+.logo {
+  height: 45px;
+  width: 125px;
+  margin-left: 20%;
+  /* background-color: aqua; */
+}
+.img {
+  width: 8em;
+  height: 45px;
+}
 
+.topright {
+
+  width: 27em;
+  height: 55px;
+  /* background-color: rgb(14, 14, 63); */
+  align-items: center;
+}
 .center {
-  height: 92vh;
+  height: 90vh;
   width: 100%;
   background-image: linear-gradient(to top, #ffffff 0%, #e7f5f5);
   box-shadow: inset 0px 15px 15px -18px rgb(171, 204, 237);
 }
-
-.logo {
-  width: 90px;
-  height: 50px;
-  margin-left: 10%;
-}
-.xcv {
-  display: flex;
-  /* width: 30%; */
-  height: 50px;
-  margin-left: 10%;
-
-  align-items: center;
-  background-color: #e7f5f5;
-}
-.right1 {
-  width: 400px;
-  height: 50px;
-  margin-left: 30%;
-  background-color: #e7f5f5;
-}
-.t1 {
-  width: 50px;
-  height: 30px;
-  display: inline-block;
-  /* background-color: aquamarine; */
-  margin-left: 15px;
-  text-align: center;
-  line-height: 30px;
+.icon{
+  width: 20px;
+  height: 20px;
 }
 
-.t1:hover {
-  color: #2b9c7c;
-  cursor: pointer;
-}
-
-.t1:active {
-  color: #2b9c7c;
-}
-
-.kk{
-  font-size: 16px;
-  color: #000;
-}
 </style>
