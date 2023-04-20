@@ -7,6 +7,11 @@ import router from './router/router';
 
 import{createPinia} from "pinia";
 import {mainStore} from "./store/index"
+import './Icons/index.js'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 const pinia = createPinia();
 Vue.use(pinia);
 Vue.prototype.$mainStore = mainStore();
