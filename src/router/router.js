@@ -8,10 +8,10 @@ VueRouter.prototype.push = function push (location) {
 }
 
 const routes =[
-//     {
-//         path:'/',
-//        redirect:"/login",
-//     },
+    // {
+    //     path:'/',
+    //    redirect:"/login",
+    // },
 //     {
 //       path:'/register',
 //       name:"register",
