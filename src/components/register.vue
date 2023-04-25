@@ -60,7 +60,7 @@ export default {
 
   methods: {
     handleSubmit() {
-      let phone = /^[1][3,4,5,7,8][0-9]{9}$/; //手机号正则
+      let phone  = /^[1][3,4,5,7,8][0-9]{9}$/; //手机号正则
       let mima = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; //数字+大写字母+小写字母：
       console.log(phone.test(this.phonenumber));
       console.log(mima.test(this.password1));
@@ -89,7 +89,8 @@ export default {
   // background-color: aqua;
 }
 .myicon {
+    width: 14em;
   height: 14em;
-  width: 14em;
+ 
 }
 </style>

@@ -89,7 +89,9 @@
    
   }
   .myicon {
-    height: 14em;
     width: 14em;
+    height: 14em;
+    
   }
+
   </style>

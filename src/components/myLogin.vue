@@ -27,7 +27,7 @@
             </div>
             <div>
                 <Button type="text" style="margin-top: 1em" >注册</Button>
-                <Button type="text"  @click="handleSubmit('formInline')" style="width: 10em; margin-top: 1em;margin-left: 3em;">忘记密码</Button>
+                 <Button type="text"  @click="handleSubmit('formInline')" style="width: 10em; margin-top: 1em;margin-left: 3em;">忘记密码</Button>
             </div>
 
 
@@ -46,8 +46,9 @@ export default {
 
   data() {
     return {
-      phonenumber: "",
       password1: "",
+      phonenumber: "",
+     
       repassword: "",
     };
   },
