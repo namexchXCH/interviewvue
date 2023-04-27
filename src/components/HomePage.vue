@@ -8,15 +8,15 @@
       </Col>
       <Col span="14">
         <Menu mode="horizontal" :theme="theme1" active-name="1">
-          <MenuItem name="1" @click.native="shouye">
+          <MenuItem name="1" @click.native="goOnePage">
             <Icon type="ios-paper" color="#037CFF" size="16" />
             首页
           </MenuItem>
-          <MenuItem name="2">
+          <MenuItem name="2" @click.native="goEightPartEssay">
             <Icon type="ios-book" color="#009961" size="16" />
             面试八股
           </MenuItem>
-          <MenuItem name="3">
+          <MenuItem name="3" @click.native="goSkillTree" >
             <Icon type="ios-construct" color="#E5010F" size="16" />
             技能树
           </MenuItem>
@@ -26,13 +26,13 @@
               学习
             </template>
 
-            <MenuItem name="3-1"
+            <MenuItem name="3-1" @click.native="goCourseRecom"
               ><Icon type="md-list-box" color="#419F4E" />课程推荐</MenuItem
             >
-            <MenuItem name="3-2"
+            <MenuItem name="3-2" @click.native="goProjectPractice"
               ><Icon type="md-cube" color="#0E4740" />项目实战</MenuItem
             >
-            <MenuItem name="3-3"
+            <MenuItem name="3-3" @click.native="goBookRecom"
               ><Icon type="md-book" color="#FC8A15" />书籍推荐</MenuItem
             >
           </Submenu>
@@ -47,15 +47,11 @@
                 ><svg-icon iconClass="denlu" class="icon1"></svg-icon>登录注册</MenuItem
               >
             </Col>
-            <!-- <Button type="primary"
-              >Display dialog box</Button
-            > -->
+
             <Modal v-model="modal1" >
               <!-- <p slot="header" style="color: #f60; text-align: center"> </p> -->
               <div style="text-align: center">
                 <LoginRegister></LoginRegister>
-            
-           
               </div>
               <div slot="footer">
              
@@ -73,9 +69,10 @@
     </Row>
 
     <div class="center">
+
       <router-view></router-view>
-      <OnePage></OnePage>
     </div>
+
   </div>
 </template>
 
@@ -100,9 +97,25 @@ export default {
   mounted() {},
 
   methods: {
-    shouye() {
-   
+    goOnePage() {
+      this.$router.push("/");
+      // console.log("lkjhlkj")
 
+    },
+    goEightPartEssay(){
+      this.$router.push("/home/eighteartessay");
+    },
+    goSkillTree(){
+      this.$router.push("/home/skilltree");
+    },
+    goCourseRecom(){
+      this.$router.push("/home/courserecom");
+    },
+    goProjectPractice(){
+      this.$router.push("/home/projectpractice");
+    },
+    goBookRecom(){
+      this.$router.push("/home/bookrecom");
     },
     ok() {
       

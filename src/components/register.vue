@@ -30,8 +30,13 @@
               <Icon type="ios-lock-outline" slot="prepend" size="22"></Icon>
             </Input>
             <div>
-                <Button type="info" style="margin-top: 2em" ghost>去登陆</Button>
-              <Button type="primary" @click="handleSubmit('formInline')" style="width: 10em; margin-top: 2em;margin-left: 1.5em;">注册</Button>
+                <Button type="info" style="margin-top: 2em" ghost  @click.native="gologin">去登陆</Button>
+                <Button type="primary" :loading="loading2" @click="handleSubmit('formInline')" style="width: 10em; margin-top: 2em;margin-left: 1.5em;">
+                 <span v-if="!loading2">注册</span>
+                   <span v-else>Loading...</span>
+                  
+                  </Button>
+       
             </div>
           </div>
 
@@ -50,6 +55,7 @@ export default {
 
   data() {
     return {
+      loading2: false,
       phonenumber: "",
       password1: "",
       repassword: "",
@@ -60,11 +66,16 @@ export default {
 
   methods: {
     handleSubmit() {
+      this.loading2 = true;
       let phone  = /^[1][3,4,5,7,8][0-9]{9}$/; //手机号正则
       let mima = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; //数字+大写字母+小写字母：
       console.log(phone.test(this.phonenumber));
       console.log(mima.test(this.password1));
     },
+    gologin(){
+       this.loading2 = false,
+        this.$emit("Mylogin","login")
+      }
   },
 };
 </script>

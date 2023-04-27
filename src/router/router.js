@@ -10,50 +10,50 @@ VueRouter.prototype.push = function push(location) {
 const routes = [
 
 
-
-
+   {
+          path:'/',
+          redirect:"/home/onepage",
+   },
+        
   {
-    path: '/mylogin',
-    name: "mylogin",
-    component: () => import("../components/myLogin.vue"),
+    path: '/home',
+    name: "home",
+    redirect: "/home/onepage",
+    component: () => import("../components/HomePage.vue"),
+    children: [
+     {
+        path:"onepage",
+        name:"onepage",
+        component:()=>import("../components/OnePage.vue"),
+
+     },
+     {
+        path:"eighteartessay",
+        name:"eighteartessay",
+        component:()=>import("../components/EightPartEssay.vue"),
+     },
+     {
+        path:"skilltree",
+        name:"skilltree",
+        component:()=>import("../components/SkillTree.vue"),
+     },
+     {
+        path:"courserecom",
+        name:"courserecom",
+        component:()=>import("../components/CourseRecom.vue"),
+     },
+     {
+        path:"projectpractice",
+        name:"projectpractice",
+        component:()=>import("../components/ProjectPractice.vue"),
+     },
+     {
+        path:"bookrecom",
+        name:"bookrecom",
+        component:()=>import("../components/BookRecom.vue"),
+     }
+    ]
   },
-  //  {
-  //     path:"/teacherHome",
-  //     name:"teacherHome",
-  //     component:()=>import("../components/TeacherModule/teacherHome.vue"),
-  //     children:[
-  //       {
-  //          path:"Profile",
-  //          name:"Profile",
-  //          component:()=>import("../components/index.vue"),
-  //       },
-  //       {
-  //          path:"Homepage",
-  //          name:"Homepage",
-  //          component:()=>import("../components/TeacherModule/Homepage.vue")
-  //      },
-  //       {
-  //          path:"myCourse",
-  //          name:"myCourse",
-  //          component:()=>import("../components/TeacherModule/myCourse.vue")
-  //       },
-  //       {
-  //          path:"myExperiment",
-  //          name:"myExperiment",
-  //          component:()=>import("../components/TeacherModule/myExperiment.vue")
-  //       },
-  //       {
-  //          path:"onlineDemonstration",
-  //          name:"onlineDemonstration",
-  //          component:()=>import("../components/TeacherModule/onlineDemonstration.vue")
-  //       }
-  //     ]
-  //  },
-  //  {
-  //     path:"/studentHome",
-  //     name:"studentHome",
-  //     component:()=>import("../components/StudentModule/studentHome.vue"),
-  //  }
 
 ]
 

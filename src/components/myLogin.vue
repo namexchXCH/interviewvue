@@ -23,11 +23,16 @@
               <Icon type="ios-lock-outline" slot="prepend" size="22"></Icon>
             </Input>
             <div>
-              <Button type="primary" @click="handleSubmit('formInline')" style="width: 17em;margin-top: 2em;">登录</Button>
+              <Button type="primary" @click="handleSubmit('formInline')" style="width: 17em;margin-top: 2em;" :loading="loading2">
+                <span v-if="!loading2">登录</span>
+                   <span v-else>Loading...</span>
+                  
+               </Button>
+           
             </div>
             <div>
-                <Button type="text" style="margin-top: 1em" >注册</Button>
-                 <Button type="text"  @click="handleSubmit('formInline')" style="width: 10em; margin-top: 1em;margin-left: 3em;">忘记密码</Button>
+                <Button type="text" style="margin-top: 1em" @click="gologin" >注册</Button>
+                 <Button type="text"  style="width: 10em; margin-top: 1em;margin-left: 3em;" @click="Forget">忘记密码</Button>
             </div>
 
 
@@ -46,6 +51,7 @@ export default {
 
   data() {
     return {
+      loading2: false,
       password1: "",
       phonenumber: "",
      
@@ -57,11 +63,20 @@ export default {
 
   methods: {
     handleSubmit() {
+      this.loading2 = true;
       let phone = /^[1][3,4,5,7,8][0-9]{9}$/; //手机号正则
       let mima = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; //数字+大写字母+小写字母：
       console.log(phone.test(this.phonenumber));
       console.log(mima.test(this.password1));
     },
+    gologin(){
+       this.loading2 = false,
+        this.$emit("Mylogin","register")
+    },
+    Forget(){
+      this.loading2 = false,
+     this.$emit("Mylogin","forget")
+    }
   },
 };
 </script>
