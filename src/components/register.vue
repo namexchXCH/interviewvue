@@ -96,9 +96,9 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.myregister {
-  // background-color: aqua;
-}
+// .myregister {
+//   // background-color: aqua;
+// }
 .myicon {
     width: 14em;
   height: 14em;

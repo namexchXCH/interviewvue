@@ -93,9 +93,9 @@
     align-items: center;
     justify-content: center;
   }
-  .ForgotPassword {
+  // .ForgotPassword {
    
-  }
+  // }
   .myicon {
     width: 14em;
     height: 14em;

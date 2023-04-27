@@ -97,9 +97,9 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.mylogin {
-  // background-color: aqua;
-}
+// .mylogin {
+//   // background-color: aqua;
+// }
 .myicon {
   height: 14em;
   width: 14em;
