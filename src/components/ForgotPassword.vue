@@ -7,7 +7,9 @@
             <svg-icon icon-class="ahaha1" class="myicon"></svg-icon>
           </Col>
           <Col flex="3" class="col2">
+
             <div class="ForgotPassword">
+
               <Input
                 v-model="phonenumber"
                 placeholder="手机号"
@@ -15,6 +17,7 @@
               >
                 <Icon type="ios-call-outline" slot="prepend" size="22"></Icon>
               </Input>
+
               <Input
                 v-model="password1"
                 placeholder="新密码"
@@ -22,19 +25,23 @@
               >
                 <Icon type="ios-lock-outline" slot="prepend" size="22"></Icon>
               </Input>
+
               <Input
                 v-model="repassword"
                 placeholder="确认新密码"
                 style="width: 17em; margin-top: 1.2em"
               >
+
                 <Icon type="ios-lock-outline" slot="prepend" size="22"></Icon>
               </Input>
+
               <div>
                   <Button type="info" style="margin-top: 2em" ghost @click="gologin">去登陆</Button>
                 <Button type="primary" :loading="loading2"  @click="handleSubmit('formInline')" style="width: 10em; margin-top: 2em;margin-left: 1.5em;">
                   <span v-if="!loading2">确认修改</span>
                    <span v-else>Loading...</span></Button>
               </div>
+              
             </div>
   
           

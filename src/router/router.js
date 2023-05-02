@@ -12,14 +12,15 @@ const routes = [
 
    {
           path:'/',
-          redirect:"/home/onepage",
+          redirect:"/home",
    },
         
   {
     path: '/home',
     name: "home",
-    redirect: "/home/onepage",
+    redirect:"/home/onepage",
     component: () => import("../components/HomePage.vue"),
+    
     children: [
      {
         path:"onepage",
