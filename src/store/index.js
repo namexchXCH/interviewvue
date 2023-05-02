@@ -1,16 +1,15 @@
-import Vue from 'vue';
+
 import { defineStore } from 'pinia'
 
-
-
-Vue.config.devtools = true;
 export const mainStore = defineStore('main', {
 
     state:() => {
         return {
+
             userInfo:{
-                
+                net_name: "殷勤的猎豹"
             },
+            isLogin:false,
           
         }
     },

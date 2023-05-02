@@ -1,14 +1,12 @@
 <template>
     <div>
-        首页
-
-        
+        个人主页
     </div>
 </template>
 
 <script>
 export default {
-    name: 'OnePage',
+    name: 'PersonalHomepage',
 
     data() {
         return {

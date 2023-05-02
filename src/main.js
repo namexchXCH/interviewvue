@@ -1,33 +1,47 @@
 import Vue from 'vue';
 import App from './App.vue';
-import router from './router/router';
+
+Vue.config.devtools = true;
+
 import ViewUI from 'view-design';
 import 'view-design/dist/styles/iview.css';
 Vue.use(ViewUI);
 
+import { createPinia,storeToRefs } from 'pinia';
+const pinia = createPinia();
+Vue.use(pinia);
+import {mainStore} from "./store/index"
+Vue.prototype.$mainStore = mainStore();//全局引用 mainStore
+Vue.prototype.$storeToRefs = storeToRefs;//全局引用 mainStore
 
 import axios from 'axios';
+Vue.prototype.$axios = axios;//全局引用axios
 
-
-
-import{createPinia} from "pinia";
-import {mainStore} from "./store/index"
-import './Icons/index.js'
+import './Icons/index'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+import router from './router/router';
 
-
-
-const pinia = createPinia();
-Vue.use(pinia);
-Vue.prototype.$mainStore = mainStore();
-Vue.prototype.$axios = axios;//全局引用axios
 Vue.config.productionTip = false;
 axios.defaults.withCredentials = true;
+axios.defaults.baseURL ="http://127.0.0.1:8009";
+
+axios.interceptors.request.use(config=> {
+  console.log("请求拦截");
+  config.headers.Authorization = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsInBob25lX251bWJlciI6IjE4NTg2NzgwNDcxIiwiZXhwIjoxNjgyOTUwOTU4fQ.G2Hu5tALRkwdli09r_d6L4yNA43FLRWiP-y7frGh7sw"
+  return config;
+})
+
+axios.interceptors.response.use(res=>{
+  console.log("响应拦截");
+  return res;
+})
+
 
 new Vue({
+
   router,
   render: h => h(App),
 }).$mount('#app')
