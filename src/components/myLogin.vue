@@ -63,10 +63,10 @@ export default  {
   methods: {
     handleSubmit() {
       this.loading2 = true;
-      let phone = /^[1][3,4,5,7,8][0-9]{9}$/; //手机号正则
+      let phone = /^[1][3,4,5,7,8,9][0-9]{9}$/; //手机号正则
       let mima = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; //数字+大写字母+小写字母：
-      console.log();
-      console.log(mima.test(this.password1));
+      // console.log();
+      // console.log(mima.test(this.password1));
      if(phone.test(this.phonenumber) && mima.test(this.password1)){
 
       this.$axios({
@@ -80,28 +80,27 @@ export default  {
      }).then((res)=>{
 
       this.loading2 = false;
-      console.log(res)
+      // console.log(res)
       if(res.data.code==200){
-         this.$mainStore.isLogin = "yes";
+         this.$mainStore.isLogin = true;
          this.$mainStore.userInfo = res.data.data;
          localStorage.setItem("authorizationtoken",res.headers.authorization);
-         localStorage.setItem("isLogin","yes");
+         localStorage.setItem("isLogin",true);
          localStorage.setItem("userid",res.data.data.user_id);
          
       }
 
-      console.log(this.$mainStore.isLogin);
-      console.log(this.$mainStore.userInfo);
+      // console.log(this.$mainStore.isLogin);
+      // console.log(this.$mainStore.userInfo);
 
      }).catch((res)=>{
 
-      // console.log(res);
-       this.$message.error("获取用户信息失败！");
+       this.$Message.error("获取用户信息失败！");
        this.loading2 = false;
      })
 
      }else{
-      this.$message.error("请正确输入密码或手机号");
+      this.$Message.error("请正确输入密码或手机号");
       this.loading2 = false;
      }
       

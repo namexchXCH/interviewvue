@@ -50,11 +50,12 @@ export default {
       this.$router.push("/");
       this.$mainStore.isLogin = false;
       console.log(res);
-       this.$message.error("请重新登录！");
+       this.$Message.error("请重新登录！");
+     
      })
     }else{
       this.$mainStore.isLogin = false;
-      this.$message.error("请先登录！");
+      // this.$Message.error("请先登录！");
       this.$router.push("/");
       this.$mainStore.userInfo={};
     }
@@ -69,8 +70,6 @@ export default {
   },
 
   beforeDestroy(){
-    console.log("LKJNKLJNKJL");
-    // localStorage.setItem("isLogin",);
     localStorage.setItem("isLogin",this.$mainStore.isLogin);
   }
 

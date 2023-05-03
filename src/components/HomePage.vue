@@ -55,8 +55,7 @@
               </MenuItem>
             </Col>
 
-            <Modal v-model="modal1"
-            @on-cancel="cancel">
+            <Modal v-model="modal1" @on-cancel="cancel">
               <div style="text-align: center">
                 <LoginRegister></LoginRegister>
               </div>
@@ -72,54 +71,62 @@
                 <Dropdown>
                   <svg-icon icon-class="denglu" class="icon"></svg-icon>
                   <DropdownMenu slot="list">
-                  
                     <div class="card1">
-
                       <Row>
-                        <Col span="24" style="height:4em;" >
-
+                        <Col span="24" style="height: 4em">
                           <Row>
                             <Col span="12" class="mycarcol1">
-                              <svg-icon icon-class="denglu" class="iconcol1" ></svg-icon>
+                              <svg-icon
+                                icon-class="denglu"
+                                class="iconcol1"
+                              ></svg-icon>
                               <div>
-                                  <p style="margin-left: 0.5em;color:#030211">{{this.$mainStore.userInfo.net_name}}</p>
-                                  <div style="margin-left: 0.5em;font-size: small; color:#4f5152;">
-                                    已登陆
-                                  </div>
+                                <p style="margin-left: 0.5em; color: #030211">
+                                  {{ this.$mainStore.userInfo.net_name }}
+                                </p>
+                                <div
+                                  style="
+                                    margin-left: 0.5em;
+                                    font-size: small;
+                                    color: #4f5152;
+                                  "
+                                >
+                                  已登陆
+                                </div>
                               </div>
-                            
-                          
-                             
                             </Col>
-                            <Col span="6">
-                              
-                            </Col>
-                            <Col span="6" class="mycarcol2" style="margin-top: 2em;">
-                            个人主页<p>></p>
+                            <Col span="6"> </Col>
+                            <Col
+                              span="6"
+                              class="mycarcol2"
+                              style="margin-top: 2em"
+                            >
+                              个人主页
+                              <p>></p>
                             </Col>
                           </Row>
-
                         </Col>
-                        <Col span="24" style="height:5em;" class="mycarcol3" >
+                        <Col span="24" style="height: 5em" class="mycarcol3">
                           <!-- background-color: #1025aa; -->
-                          <div style="width:19em;height:5em; border-radius: 0.5em;">
-
-                          </div>
+                          <div
+                            style="
+                              width: 19em;
+                              height: 5em;
+                              border-radius: 0.5em;
+                            "
+                          ></div>
                         </Col>
-                        <Col span="24" style="height:3em;">
-                        
+                        <Col span="24" style="height: 3em">
                           <Row>
-                             <Col span="12"  class="coltan">
-                              账号设置
-                             </Col>
-                             <Col span="12" class="coltan">
-                             退出登录
-                             </Col>
-                         </Row>
-
+                            <Col span="12" class="coltan">
+                              <P>账号设置</P>
+                            </Col>
+                            <Col span="12" class="coltan">
+                              <p @click="confirm">退出登录</p>
+                            </Col>
+                          </Row>
                         </Col>
                       </Row>
-
                     </div>
                   </DropdownMenu>
                 </Dropdown>
@@ -163,36 +170,53 @@ export default {
   data() {
     return {
       theme1: "light",
-      modal:false,
+      modal: false,
     };
   },
 
   mounted() {},
 
   computed: {
-  modal1:{
-    get(){
-      this.$Modal.remove();
-      return !this.$mainStore.isLogin && this.modal;
-    },
+    modal1: {
+      get() {
+        this.$Modal.remove();
+        return !this.$mainStore.isLogin && this.modal;
+      },
 
-    set(val){
-      return val;
-    }
-  }
+      set(val) {
+        return val;
+      },
+    },
   },
 
   methods: {
-
-    cancel(){
+    cancel() {
       this.modal = false;
-
     },
 
     tanmodal() {
       this.modal = true;
     },
-
+    confirm() {
+      this.$Modal.confirm({
+        title: "确认退出登陆吗？",
+      
+        onOk: () => {
+          this.$router.push("/");
+          localStorage.clear();
+          // this.modal = false;
+          localStorage.setItem("isLogin",false);
+          setTimeout(() => {
+            this.$mainStore.isLogin = false;
+           }, 500);
+          this.$Message.info("成功退出登录");
+        },
+        
+        onCancel: () => {
+         
+        },
+      });
+    },
     goOnePage() {
       this.$router.push("/");
     },
@@ -212,16 +236,12 @@ export default {
     goProjectPractice() {
       this.$router.push("/home/projectpractice");
     },
-    
+
     goBookRecom() {
       this.$router.push("/home/bookrecom");
     },
 
-    ok() {
-      this.$Message.info("Clicked ok");
-    },
-
-
+    ok() {},
   },
 };
 </script>
@@ -234,12 +254,10 @@ export default {
   height: 45px;
   width: 125px;
   margin-left: 20%;
- 
 }
 .img {
   width: 8em;
   height: 45px;
- 
 }
 
 .center {
@@ -278,32 +296,29 @@ export default {
   height: 12em;
   border-radius: 5%;
 }
-.coltan{
-  height:3em;
+.coltan {
+  height: 3em;
   text-align: center;
   line-height: 3em;
 }
-.coltan:hover{
-    color: #39c99b;
-    
+.coltan:hover {
+  color: #39c99b;
 }
-.mycarcol1{
+.mycarcol1 {
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  
 }
-.mycarcol2{
+.mycarcol2 {
   color: #0ac78b;
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  
 }
-.mycarcol2:hover{
+.mycarcol2:hover {
   color: #149635;
 }
-.iconcol1{
+.iconcol1 {
   height: 3em;
   width: 3em;
   margin-left: 0.5em;
@@ -311,7 +326,7 @@ export default {
 /* .iconcol1:hover{
   box-shadow: 10px 10px rgb(69, 69, 151);
 } */
-.mycarcol3{
+.mycarcol3 {
   display: flex;
   justify-content: center;
   /* align-items: center; */
