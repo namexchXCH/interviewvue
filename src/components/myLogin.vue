@@ -82,17 +82,20 @@ export default  {
       this.loading2 = false;
       console.log(res)
       if(res.data.code==200){
-         this.$mainStore.isLogin = true;
+         this.$mainStore.isLogin = "yes";
          this.$mainStore.userInfo = res.data.data;
+         localStorage.setItem("authorizationtoken",res.headers.authorization);
+         localStorage.setItem("isLogin","yes");
+         localStorage.setItem("userid",res.data.data.user_id);
          
-
       }
 
       console.log(this.$mainStore.isLogin);
       console.log(this.$mainStore.userInfo);
 
      }).catch((res)=>{
-      console.log(res);
+
+      // console.log(res);
        this.$message.error("获取用户信息失败！");
        this.loading2 = false;
      })

@@ -30,7 +30,7 @@ axios.defaults.baseURL ="http://127.0.0.1:8009";
 
 axios.interceptors.request.use(config=> {
   console.log("请求拦截");
-  config.headers.Authorization = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsInBob25lX251bWJlciI6IjE4NTg2NzgwNDcxIiwiZXhwIjoxNjgyOTUwOTU4fQ.G2Hu5tALRkwdli09r_d6L4yNA43FLRWiP-y7frGh7sw"
+  config.headers.Authorization = localStorage.getItem("authorizationtoken") ;
   return config;
 })
 
@@ -38,7 +38,6 @@ axios.interceptors.response.use(res=>{
   console.log("响应拦截");
   return res;
 })
-
 
 new Vue({
 
