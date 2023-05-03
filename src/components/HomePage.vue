@@ -308,9 +308,9 @@ export default {
   width: 3em;
   margin-left: 0.5em;
 }
-.iconcol1:hover{
+/* .iconcol1:hover{
   box-shadow: 10px 10px rgb(69, 69, 151);
-}
+} */
 .mycarcol3{
   display: flex;
   justify-content: center;

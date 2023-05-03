@@ -7,7 +7,12 @@ export const mainStore = defineStore('main', {
         return {
 
             userInfo:{
-                net_name: "殷勤的猎豹"
+                head_sculpture: "",
+                net_name: "",
+                password: "",
+                phone_number: "",
+                user_id: "",
+
             },
             isLogin:false,
           
