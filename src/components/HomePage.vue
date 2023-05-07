@@ -6,40 +6,47 @@
           <img src="../../public/mag/16UHJ4)6(8IX3MXHM[9XERU.png" class="img" />
         </div>
       </Col>
-      <Col span="8">
+      <Col span="9">
+
         <Menu mode="horizontal" :theme="theme1" active-name="1">
+
           <MenuItem name="1" @click.native="goOnePage">
-            <Icon type="ios-paper" color="#037CFF" size="16" />
+            <Icon type="ios-apps" color="#037CFF" size="16" />
             首页
           </MenuItem>
-          <MenuItem name="2" @click.native="goEightPartEssay">
+          <MenuItem name="2" @click.native="goToolLibrary">
+            <Icon type="ios-construct" color="#E5010F" size="16" />
+            工具库
+          </MenuItem>
+          <MenuItem name="3" @click.native="goEightPartEssay">
             <Icon type="ios-book" color="#009961" size="16" />
             面试八股
           </MenuItem>
-          <MenuItem name="3" @click.native="goSkillTree">
-            <Icon type="ios-construct" color="#E5010F" size="16" />
+          <MenuItem name="4" @click.native="goSkillTree">
+            <Icon type="ios-nuclear" color="#0DBC79" size="16" />
             技能树
           </MenuItem>
-          <Submenu name="4">
+          <Submenu name="5">
             <template slot="title">
               <Icon type="ios-stats" color="#5FC948" size="16" />
               学习
             </template>
 
-            <MenuItem name="4-1" @click.native="goCourseRecom"
+            <MenuItem name="5-1" @click.native="goCourseRecom"
               ><Icon type="md-list-box" color="#419F4E" />课程推荐</MenuItem
             >
-            <MenuItem name="4-2" @click.native="goProjectPractice"
+            <MenuItem name="5-2" @click.native="goProjectPractice"
               ><Icon type="md-cube" color="#0E4740" />项目实战</MenuItem
             >
-            <MenuItem name="4-3" @click.native="goBookRecom"
+            <MenuItem name="5-3" @click.native="goBookRecom"
               ><Icon type="md-book" color="#FC8A15" />书籍推荐</MenuItem
             >
           </Submenu>
+
         </Menu>
       </Col>
 
-      <Col span="6"> </Col>
+      <Col span="5"> </Col>
 
       <Col span="6">
         <div class="topright">
@@ -101,7 +108,7 @@
                               class="mycarcol2"
                               style="margin-top: 2em"
                             >
-                              个人主页
+                             <p @click="goPersonhome">个人主页</p> 
                               <p>></p>
                             </Col>
                           </Row>
@@ -119,7 +126,7 @@
                         <Col span="24" style="height: 3em">
                           <Row>
                             <Col span="12" class="coltan">
-                              <P>账号设置</P>
+                              <P @click="goAccountset">账号设置</P>
                             </Col>
                             <Col span="12" class="coltan">
                               <p @click="confirm">退出登录</p>
@@ -139,7 +146,7 @@
                 class="myitem"
                 v-show="this.$mainStore.isLogin"
               >
-                <Button type="primary" ghost shape="circle">个人主页</Button>
+                <Button type="primary" ghost shape="circle" @click="goPersonhome">个人主页</Button>
               </MenuItem>
             </Col>
             <!-- <Col span="6"></Col> -->
@@ -179,7 +186,7 @@ export default {
   computed: {
     modal1: {
       get() {
-        this.$Modal.remove();
+        // this.$Modal.remove();
         return !this.$mainStore.isLogin && this.modal;
       },
 
@@ -220,6 +227,9 @@ export default {
     goOnePage() {
       this.$router.push("/");
     },
+    goToolLibrary() {
+      this.$router.push("/home/mytoollibrary");
+    },
 
     goEightPartEssay() {
       this.$router.push("/home/eighteartessay");
@@ -239,6 +249,12 @@ export default {
 
     goBookRecom() {
       this.$router.push("/home/bookrecom");
+    },
+    goPersonhome(){
+      this.$router.push("/home/personalhomepage");
+    },
+    goAccountset(){
+      this.$router.push("/home/accountset");
     },
 
     ok() {},
@@ -263,7 +279,7 @@ export default {
 .center {
   height: 91vh;
   width: 100%;
-  background-image: linear-gradient(to top, #ffffff 0%, #e7f5f5);
+  /* background-image: linear-gradient(to top, #ffffff 0%, #ffffff); */
   box-shadow: inset 0px 15px 15px -18px rgb(171, 204, 237);
 }
 
@@ -330,6 +346,7 @@ export default {
   display: flex;
   justify-content: center;
   /* align-items: center; */
+  /* color: #c46309; */
 }
 </style>
 

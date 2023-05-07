@@ -65,8 +65,7 @@ export default  {
       this.loading2 = true;
       let phone = /^[1][3,4,5,7,8,9][0-9]{9}$/; //手机号正则
       let mima = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; //数字+大写字母+小写字母：
-      // console.log();
-      // console.log(mima.test(this.password1));
+
      if(phone.test(this.phonenumber) && mima.test(this.password1)){
 
       this.$axios({
@@ -82,6 +81,7 @@ export default  {
       this.loading2 = false;
       // console.log(res)
       if(res.data.code==200){
+        this.$Message.success('登录成功');
          this.$mainStore.isLogin = true;
          this.$mainStore.userInfo = res.data.data;
          localStorage.setItem("authorizationtoken",res.headers.authorization);
@@ -90,8 +90,6 @@ export default  {
          
       }
 
-      // console.log(this.$mainStore.isLogin);
-      // console.log(this.$mainStore.userInfo);
 
      }).catch((res)=>{
 

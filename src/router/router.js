@@ -29,6 +29,11 @@ const routes = [
 
      },
      {
+      path:"mytoollibrary",
+      name:"toollibrary",
+      component:()=>import("../components/ToolLibrary.vue"),
+    },
+     {
         path:"eighteartessay",
         name:"eighteartessay",
         component:()=>import("../components/EightPartEssay.vue"),
@@ -52,7 +57,17 @@ const routes = [
         path:"bookrecom",
         name:"bookrecom",
         component:()=>import("../components/BookRecom.vue"),
-     }
+     },
+     {
+      path:"personalhomepage",
+      name:"personalhomepage",
+      component:()=>import("../components/PersonalHomepage.vue"),
+     },
+     {
+      path:"accountset",
+      name:"accountset",
+      component:()=>import("../components/AccountSet.vue"),
+   }
     ]
   },
 
