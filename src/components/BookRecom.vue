@@ -1,6 +1,6 @@
 <template>
     <div>
-        书籍推荐
+        书籍 推荐
     </div>
 </template>
 
