@@ -1,6 +1,6 @@
 <template>
     <div>
-         工具库
+         工具 库
     </div>
 </template>
 

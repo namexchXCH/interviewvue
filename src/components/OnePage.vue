@@ -11,6 +11,7 @@
         <Col span="3" class="row2-col4">col-12</Col>
     </Row>
   </div>
+  
 </template>
 
 <script>

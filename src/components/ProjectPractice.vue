@@ -1,6 +1,6 @@
 <template>
     <div>
-        项目实战
+        项 目实战
     </div>
 </template>
 
@@ -10,6 +10,7 @@ export default {
 
     data() {
         return {
+          
             
         };
     },

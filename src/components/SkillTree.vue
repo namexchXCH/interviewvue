@@ -1,6 +1,6 @@
 <template>
     <div>
-        技能树
+        技 能树
     </div>
 </template>
 

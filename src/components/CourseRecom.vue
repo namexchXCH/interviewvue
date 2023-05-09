@@ -1,6 +1,6 @@
 <template>
     <div>
-        课程推荐
+        课程推 荐
     </div>
 </template>
 

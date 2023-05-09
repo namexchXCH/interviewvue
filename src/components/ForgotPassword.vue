@@ -35,6 +35,7 @@
                 <Icon type="ios-lock-outline" slot="prepend" size="22"></Icon>
               </Input>
 
+              
               <div>
                   <Button type="info" style="margin-top: 2em" ghost @click="gologin">去登陆</Button>
                 <Button type="primary" :loading="loading2"  @click="handleSubmit('formInline')" style="width: 10em; margin-top: 2em;margin-left: 1.5em;">

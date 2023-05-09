@@ -1,6 +1,6 @@
 <template>
     <div>
-        账号设置
+        账号 设 置
         
     </div>
 </template>

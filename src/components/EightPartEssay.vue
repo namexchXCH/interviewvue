@@ -120,8 +120,8 @@ export default {
       cardList: [],
       EightTopic:[
         
-        {    topicId:"八股文题目id",
-             memberId:"八股文题目属于哪个模块id",
+        {    topicId:"八股 文题目id",
+             memberId:"八股文题 目属于哪个模块id",
              topicText:"八股文题目类容",
         }
       ]

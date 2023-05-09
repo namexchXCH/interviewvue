@@ -2,6 +2,7 @@
   <svg class="svg-icon" aria-hidden="true">
     <use :xlink:href="iconName" />
   </svg>
+  
 </template>
  
 <script>

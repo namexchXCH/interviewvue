@@ -6,6 +6,7 @@
   </div>
 </template>
 
+
 <script>
 import ForgotPassword from './ForgotPassword.vue';
 import MyLogin from "./myLogin.vue";

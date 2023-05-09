@@ -76,7 +76,7 @@ export default  {
         code:this.password1,
       },
     
-     }).then((res)=>{
+     }).then((res)=> {
 
       this.loading2 = false;
       // console.log(res)
