@@ -1,8 +1,9 @@
 <template>
   <div>
+    
     <Row class="row1">
         <Col span="24">col-12</Col>
-       
+        
     </Row>
     <Row class="row2">
         <Col span="3" class="row2-col1">col-12</Col>
@@ -19,7 +20,9 @@ export default {
   name: "OnePage",
 
   data() {
-    return {};
+    return {
+      
+    };
   },
 
   mounted() {},

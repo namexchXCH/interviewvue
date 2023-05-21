@@ -9,7 +9,9 @@
               v-for="(item, index) in EightTextLabel"
               :key="index"
               @click="acticeLable(index, item)"
+           
               :class="['pp1', { pp1active: labelNumber == index }]"
+              
             >
               {{ item.labelText }}
             </p>
@@ -22,7 +24,7 @@
       <Row>
         <Col span="3"></Col>
         <Col span="18">
-          <div v-show="this.cardList.length < 1">
+          <div v-show="this.isShowImage < 1">
             <div class="showjiaban">
               <svg-icon icon-class="zhanwushuju" class="icon"></svg-icon>
             </div>
@@ -32,32 +34,20 @@
               v-for="(item, index) in cardList"
               :key="index"
               @click="menberCar(index, item)"
-              class="opop"
-              style="
-                display: inline-block;
-                margin-left: 1em;
-                cursor: pointer;
-                margin-top: 1em;
-              "
-            >
+              class="opop" >
               <Card
-                style="width: 270px; height: 90px"
+               
                 :dis-hover="true"
                 :padding="0"
               >
-                <div style="width: 270px; height: 90px">
+                <div class="car-car" >
                   <Row>
                     <Col span="7" style="">
                       <div
-                        style="height: 90px; display: flex; align-items: center"
+                        style="height: 90px; display: flex; align-items: center; "
                       >
                         <img
-                          style="
-                            width: 70px;
-                            height: 86px;
-                            border-radius: 4px;
-                            margin-left: 2px;
-                          "
+                         class="img"
                           :src="item.coverUrl"
                         />
                       </div>
@@ -118,13 +108,15 @@ export default {
       EightTextLabel: [],
       labelNumber: 0,
       cardList: [],
+      isShowImage: 2,
       EightTopic:[
-        
-        {    topicId:"八股 文题目id",
-             memberId:"八股文题 目属于哪个模块id",
-             topicText:"八股文题目类容",
-        }
-      ]
+                  {    
+                    topicId:"八股 文题目id",
+                    memberId:"八股文题 目属于哪个模块id",
+                    topicText:"八股文题 目类容",
+                 } 
+              ]
+
     };
   },
 
@@ -147,13 +139,11 @@ export default {
               params: {
                 labelId: this.EightTextLabel[0].labelId,
               },
-            })
-              .then((res) => {
+            }).then((res) => {
                 if (res.data.code == 200) {
                   this.cardList = res.data.data;
                 }
-              })
-              .catch((res) => {});
+              }).catch((res) => {});
           }
         }
       })
@@ -164,6 +154,7 @@ export default {
 
   methods: {
     acticeLable(index, item) {
+      this.isShowImage = 2;
       this.labelNumber = index;
       this.$axios({
         method: "GET",
@@ -171,20 +162,39 @@ export default {
         params: {
           labelId: item.labelId,
         },
-      })
-        .then((res) => {
+      }).then((res) => {
           if (res.data.code == 200) {
             this.cardList = res.data.data;
             if (this.cardList.length < 1) {
               this.$Message.info("小站正在加班努力中！");
+              this.isShowImage = 0;
             }
           }
-        })
-        .catch((res) => {});
+        }).catch((res) => {});
     },
+
     menberCar(index, item) {
-      console.log(item);
+      console.log( this.$mainStore.isLogin!=true);
+      console.log(item);    
+
+      if(this.$mainStore.isLogin!=true){
+
+        this.$Message.info("请先登录！");
+
+      }else{
+
+         this.$router.push({
+           path:"/home/details",
+           query:{
+            isActive: 1,
+            memberId:item.memberId,
+           }
+           
+        });       
+      }
+       
     },
+      
   },
 };
 </script>
@@ -212,6 +222,7 @@ export default {
  
   background-color: #bbcfff;
   cursor: pointer;
+  
 }
 
 .pp1:active {
@@ -230,6 +241,14 @@ export default {
   height: 30em;
   width: 30em;
 }
+.opop{
+  // background-color: red;
+  display: inline-block;
+  margin-left: 1em;
+  cursor: pointer;
+  margin-top: 1em;
+  
+}
 .opop:hover {
   box-shadow: 0 0 10px rgb(217, 226, 241);
 
@@ -237,5 +256,29 @@ export default {
 
 .pp1active {
   background-color: #bbcfff !important;
+}
+
+.car-car{
+  width: 270px; 
+  height: 90px;
+ 
+}
+
+.sdgfsdgf{
+  background-color: red;
+  height: 100px;
+  width: 100px;
+  transition: all 5s ;
+}
+.sdgfsdgf:hover{
+  background-color: red;
+  height: 200px;
+  width: 200px;
+}
+.img{
+ width: 70px;
+  height: 86px;
+ border-radius: 4px;
+ margin-left: 2px;                                           
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-   <!-- <HomePage></HomePage> -->
+
    <router-view></router-view>
 
   </div>
@@ -8,12 +8,11 @@
 
 <script>
 
-import HomePage from '@/components/HomePage'
+
 
 export default {
   name: 'App',
   components: {
-    HomePage,
 
   },
 
@@ -49,13 +48,11 @@ export default {
      }).catch((res)=>{     
       this.$router.push("/");
       this.$mainStore.isLogin = false;
-      console.log(res);
-       this.$Message.error("请重新登录！");
+       this.$Message.info('请重新登录！');
      
      })
     }else{
       this.$mainStore.isLogin = false;
-      // this.$Message.error("请先登录！");
       this.$router.push("/");
       this.$mainStore.userInfo={};
     }

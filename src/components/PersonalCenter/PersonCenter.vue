@@ -1,14 +1,12 @@
 <template>
     <div>
-        <ViewEditer></ViewEditer>
+        个人中心
     </div>
 </template>
 
 <script>
-import ViewEditer from './ViewEditer.vue';
 export default {
-  components: { ViewEditer },
-    name: 'ToolLibrary',
+    name: 'PersonCenter',
 
     data() {
         return {

@@ -67,6 +67,11 @@ const routes = [
       path:"accountset",
       name:"accountset",
       component:()=>import("../components/AccountSet.vue"),
+   },
+   {
+      path:"details",
+      name:"details",
+      component:()=>import("../components/EightDetails/Details.vue"),
    }
     ]
   },

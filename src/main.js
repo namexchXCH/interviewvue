@@ -24,9 +24,12 @@ Vue.use(ElementUI);
 
 import router from './router/router';
 
+
 Vue.config.productionTip = false;
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL ="http://127.0.0.1:8009";
+// axios.defaults.baseURL ="http://127.0.0.1:8009";
+axios.defaults.baseURL ="http://xinterview.ihk.vipnps.vip";
+
 
 axios.interceptors.request.use(config=> {
   console.log("请求拦截");
@@ -38,6 +41,27 @@ axios.interceptors.response.use(res=>{
   console.log("响应拦截");
   return res;
 })
+
+// node_modules\@kangc\v-md-editor\lib\theme\hljs.js
+import VMdEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
+import hljs from 'highlight.js';
+import createCopyCodePlugin from '@kangc/v-md-editor/lib/plugins/copy-code/index';
+import '@kangc/v-md-editor/lib/plugins/copy-code/copy-code.css';
+import createLineNumbertPlugin from '@kangc/v-md-editor/lib/plugins/line-number/index';
+import createHighlightLinesPlugin from '@kangc/v-md-editor/lib/plugins/highlight-lines/index';
+import '@kangc/v-md-editor/lib/plugins/highlight-lines/highlight-lines.css';
+import vuepressTheme from "@kangc/v-md-editor/lib/theme/vuepress.js";
+VMdEditor.use(createLineNumbertPlugin());
+VMdEditor.use(createCopyCodePlugin());
+VMdEditor.use(createHighlightLinesPlugin)
+VMdEditor.use(githubTheme, {
+  Hljs: hljs,
+});
+Vue.use(VMdEditor);
+
 
 new Vue({
 

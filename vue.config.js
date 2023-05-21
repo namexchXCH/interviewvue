@@ -1,10 +1,12 @@
 const { defineConfig } = require('@vue/cli-service')
 const path = require('path');
+
 module.exports = defineConfig({
 
   transpileDependencies: true,
   lintOnSave:false,
   chainWebpack: (config) => {
+    
     // set svg-sprite-loader
     config.module
       .rule('svg')
@@ -22,9 +24,16 @@ module.exports = defineConfig({
       })
       .end();
   },
-
+  devServer: {
+    allowedHosts: [
+     '.vipnps.vip'
+    ],
+    // disableHostCheck: true,
+    // host: '',  // 域名
+    port: 8080,  // 端口
+    https: false,  // 是否https
+    
+   
+  }
 
 })
-// module.exports = {
-	
-// }
