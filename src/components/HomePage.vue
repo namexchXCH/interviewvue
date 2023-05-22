@@ -225,7 +225,8 @@ export default {
         },
       });
     },
-    goOnePage() {
+    goOnePage(e) {
+      console.log(e);
       this.$router.push("/");
     },
     goToolLibrary() {
@@ -264,6 +265,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+
 .top {
   align-items: center;
 }
@@ -275,6 +278,7 @@ export default {
 .img {
   width: 8em;
   height: 45px;
+  cursor: pointer;
 }
 
 .center {
@@ -340,9 +344,7 @@ export default {
   width: 3em;
   margin-left: 0.5em;
 }
-/* .iconcol1:hover{
-  box-shadow: 10px 10px rgb(69, 69, 151);
-} */
+
 .mycarcol3 {
   display: flex;
   justify-content: center;

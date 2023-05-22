@@ -68,7 +68,12 @@ export default {
                     topicId: item.topicId,
                 },
            }).then((res) => {
+            if(res.data.code == 200){
                 this.markdown  =res.data.data.articleText;
+         }else{
+           this.$Message.info(res.data.message);
+         }
+               
            }).catch((res) => {});
 
         },
