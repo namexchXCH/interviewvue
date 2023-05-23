@@ -1,31 +1,32 @@
 <template>
-    <div>
+    <div class="div1">
+   
         <div class="top">
             <div class="top2" @click="backpage">
                 <svg-icon icon-class="G_fanhui" class="icon"></svg-icon> 返回
             </div>         
         </div>
 
-        <div>
+
             <Row class="row1">
-             <Col span="5" class="col41">
-                <li @click="topic(item,index)" v-for="(item,index) in allTopic " :key="index"  :class= "['row1-li',{ row1liSelected: topicSelected == index } ]" >
-                    <span class="col41-span">{{ index+1 }}</span>
-                    <span class="span1">{{item.topicText}}</span> 
-                </li>
+                <Col span="5" class="col41">
+                    <li @click="topic(item,index)" v-for="(item,index) in allTopic " :key="index"  :class= "['row1-li',{ row1liSelected: topicSelected == index } ]" >
+                        <span class="col41-span">{{ index+1 }}</span>
+                        <span class="span1">{{item.topicText}}</span> 
+                    </li>   
+                </Col>
                 
-                
-            </Col>
-             <Col span="19" class="col42">
-                <div style="width:85em;">
-                    <v-md-editor :value="markdown" mode="preview"></v-md-editor>
-                 </div>
-            </Col>
+                <Col span="19" class="col42">
+                    <div style="width:85em;">
+                        <v-md-editor :value="markdown" mode="preview"></v-md-editor>
+                    </div>
+                </Col>
            </Row>
-        </div>
+
 
         <!-- {{ this.$route.query }} -->
-    </div>
+   
+</div>
 </template>
 
 <script>
@@ -102,9 +103,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.div1{
+    height: 100%;
+    width: 100%;
+}
+.div2{
+    width: 93%;
+    width: 100%;
+}
 .top{ 
-    height: 2.5em;
+    height: 7%;
     width: 100%;
     
 }
@@ -128,14 +136,15 @@ export default {
     margin-left: 0.5em;
 }
 .row1{
-    height: 60em;
+   
+    height: 93%;
 }
 .col41{
-    height: 60em;
+    height: 100%;
     overflow: auto;
 }
 .col42{
-    height: 60em;
+    height: 100%;
     overflow: auto;
 }
 .row1-li{

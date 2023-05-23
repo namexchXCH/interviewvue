@@ -3,7 +3,8 @@
     <div class="one1">
       <Row class="row1">
         <Col span="5"></Col>
-        <Col span="14" class="col2">
+        <transition name="el-fade-in-linear">
+          <Col span="14" class="col2">
           <div class="baioqianp">
             <p
               v-for="(item, index) in EightTextLabel"
@@ -17,13 +18,17 @@
             </p>
           </div>
         </Col>
+      </transition>
+      
+
         <Col span="5"></Col>
       </Row>
     </div>
     <div style="margin-top: 2em">
       <Row>
         <Col span="3"></Col>
-        <Col span="18">
+        <transition name="el-fade-in-linear">
+          <Col span="18">
           <div v-show="this.isShowImage < 1">
             <div class="showjiaban">
               <svg-icon icon-class="zhanwushuju" class="icon"></svg-icon>
@@ -93,6 +98,8 @@
             </p>
           </div>
         </Col>
+       </transition>
+      
         <Col span="3"></Col>
       </Row>
     </div>
@@ -182,7 +189,6 @@ export default {
         this.$Message.info("请先登录！");
 
       }else{
-
          this.$router.push({
            path:"/home/details",
            query:{
@@ -207,6 +213,7 @@ export default {
 
   border-radius: 8px;
 }
+
 .pp1 {
   display: inline-block;
   width: 6em;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="divone">
     
     <Row class="row1">
         <Col span="24">col-12</Col>
@@ -32,14 +32,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.divone{
+  width: 100%;
+  height: 100%;
+}
 .row1{
-    height: 11em;
+    height: 20%;
     background-color: aqua;
     
 }
 .row2{
-    height: 36em;
+    height: 80%;
     background-color: rgb(55, 145, 145);
     
 }
