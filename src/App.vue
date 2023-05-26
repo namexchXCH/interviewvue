@@ -2,18 +2,19 @@
   <div id="app">
 
    <router-view></router-view>
+   <!-- <ViewEditer></ViewEditer> -->
 
   </div>
 </template>
 
 <script>
 
-
+import ViewEditer from './components/ViewEditer.vue'
 
 export default {
   name: 'App',
   components: {
-
+    ViewEditer
   },
 
   mounted(){

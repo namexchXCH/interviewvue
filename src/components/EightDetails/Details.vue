@@ -134,6 +134,7 @@ export default {
     width: 1.5em;
     height: 1.5em;
     margin-left: 0.5em;
+    color: #FF3F33;
 }
 .row1{
    
@@ -149,7 +150,7 @@ export default {
 }
 .row1-li{
     height: 2em;
-    width: 20em;
+    width: 90%;
     margin-left: 1em;
     list-style-type:none;
     line-height: 2em;

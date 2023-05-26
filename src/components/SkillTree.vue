@@ -24,9 +24,13 @@
            </Col>
 
            <Col span="16" class="kokoko">
+          
             <div class="center11">
+               
                  <v-md-editor class="md" :value="markdown" mode="preview"></v-md-editor>
+                
             </div>
+       
              
         
            </Col>
@@ -196,7 +200,8 @@ export default {
   
 }
 .center11::-webkit-scrollbar{
-    width: 0.2em;
+    width: 0.5em;
+
 }
 .myli{
     cursor: pointer;
