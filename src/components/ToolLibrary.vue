@@ -2,16 +2,18 @@
     <div class="div1">
         <div class="divone">
             <Row type="flex" class="row1">
-                <Col span="5" class="col1">
+                <Col span="3" class="col1">
                    <div class="col11">
                     <el-container class="el-container">
-                        <el-aside class="el-aside"  width="70%">
+                        <el-aside class="el-aside"  width="100%">
                             <el-menu  class="el-menu">
                                 <el-menu-item  :index="index1+''" v-for="(item,index1) in toolNavigation" :key="index1" @click.native="getTool(item,index1)">
-                                    <Row>
-                                        <Col span="24" class="Row-Col1"><span class="span1"><svg-icon :icon-class="item.navigationIcon" class="myicon"></svg-icon><span class="span2">{{item.navigationNmae}}</span> </span><i class="el-icon-arrow-right"></i></Col>    
+                                   <a :href="'#'+item.navigationId" class="a1">
+                                        <Row>
+                                            <Col span="24" class="Row-Col1"><span class="span1"><svg-icon :icon-class="item.navigationIcon" class="myicon"></svg-icon><span class="span2">{{item.navigationNmae}}</span> </span><i class="el-icon-arrow-right"></i></Col>    
 
-                                    </Row>
+                                        </Row>
+                                  </a>
                                     
                                </el-menu-item>
 
@@ -21,7 +23,33 @@
                    </div>
                 </Col>
                
-                <Col span="19" ></Col>
+                <Col span="21" class="col2" >
+                   <div  :id="item.navigationId" class="divcol2" v-for="(item,index) in toolNavigation" :key="index">
+                        <span class="span12">
+                        <svg-icon :icon-class="item.navigationIcon" class="myicon"></svg-icon><span class="span2">{{item.navigationNmae}}</span>
+                        </span>
+                        <div class="col2-div">
+
+                            <li class="col2-div-li" v-for="(item,index) in 15" :key="index" >
+                                <div class="col2-div2">
+                                    <el-tooltip class="myitem"  effect="light" content="除了这些基本设置外，还有一些属性可以让使用者更好的定制自己的效果：提示文字" placement="top-end">
+                                        <div class="col2-div2">
+                                            <img src="https://www.bilibili.com/favicon.ico?v=1" class="myimag"/> <span class="item1">一个木函工具箱</span> 
+                                        </div>
+                                    </el-tooltip>
+                                    <el-tooltip class="myitem" effect="light" content="传送门" placement="top-end">
+                                    <svg-icon icon-class="youjiantou" class="myicon2"></svg-icon>
+                                </el-tooltip>
+                                </div>
+                            </li>
+                        
+                            
+                            
+                        </div>
+                    
+                  </div>
+                  
+                </Col>
             </Row>
         </div>
         
@@ -37,87 +65,93 @@ export default {
     data() {
         return {
         toolNavigation:[
+           {
+                navigationId:"aitools",
+                navigationIcon:"ai",
+                navigationNmae:"AI工具",
+  
+            },
             {
-                navigationId:"",
+                navigationId:"utilitiestools",
                 navigationIcon:"gongju",
                 navigationNmae:"实用工具",
                 
             },
             {
-                navigationId:"",
+                navigationId:"learningeducation",
                 navigationIcon:"jiaoyu",
                 navigationNmae:"学习教育",
                 
             },
             {
-                navigationId:"",
+                navigationId:"officematerials",
                 navigationIcon:"sucaiku",
                 navigationNmae:"办公素材",
                
             },
             {
-                navigationId:"",
+                navigationId:"onlinetools",
                 navigationIcon:"gongju_1",
                 navigationNmae:"在线工具",
                 
             },
             {
-                navigationId:"",
+                navigationId:"Programtools",
                 navigationIcon:"code",
                 navigationNmae:"编程工具",
                 
             },
             {
-                navigationId:"",
+                navigationId:"technicalcommunity",
                 navigationIcon:"shequ",
                 navigationNmae:"技术社区",
                 
             },
             {
-                navigationId:"",
+                navigationId:"beautifulmusic",
                 navigationIcon:"yinle",
                 navigationNmae:"动听音乐",
                
             },
             {
-                navigationId:"",
+                navigationId:"livedramachasing",
                 navigationIcon:"zhibo",
                 navigationNmae:"直播追剧",
                
             },
             {
-                navigationId:"",
+                navigationId:"entertainmentsites",
                 navigationIcon:"yulezhandian",
                 navigationNmae:"娱乐站点",
                 
             },
             {
-                navigationId:"",
+                navigationId:"blogforum",
                 navigationIcon:"boke",
                 navigationNmae:"博客论坛",
                 
             },
             
             {
-                navigationId:"",
+                navigationId:"jobsearchnavigation",
                 navigationIcon:"qiuzhi",
                 navigationNmae:"求职导航",
                 
             },
             {
-                navigationId:"",
+                navigationId:"onlinenavigation",
                 navigationIcon:"daohang-",
                 navigationNmae:"在线导航",
               
             },
             {
-                navigationId:"",
+                navigationId:"other",
                 navigationIcon:"qita",
                 navigationNmae:"其他",
             
             },
             {
-                navigationId:"",
+                navigationId:"aboutthiswebsite",
                 navigationIcon:"guanyu",
                 navigationNmae:"关于本站",
                 
@@ -141,6 +175,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.a1{
+    color: inherit;
+    text-decoration: none;
+}
 .div1{
     height: 100%;
     width: 100%;
@@ -171,26 +209,103 @@ export default {
     justify-content: center;
     align-items: center;
 }
+.span12{
+    display: flex;
+    align-items: center;
+    margin-top: 1.5em;
+    // background-color: aqua;
+    margin-left: 1em;
+  
+    font-weight: bold;
+
+}
 .span2{
     margin-left: 0.5em;
 }
 .el-container{
     height: 98%; 
-    width: 100%;
-   
+    width: 100%;  
     overflow: auto;
-
-   
 }
+
+.col2{
+    height: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+.col2-div{
+    height: auto;   
+}
+.col2-div2{
+    display: flex;
+    height: 3em;
+    // background-color: aqua;
+    align-items: center;
+    justify-content: space-between;
+}
+.item1{
+    margin-left: 1em;
+}
+.col2-div-li{
+    display: inline-block;
+    
+    margin-left: 1.5em;
+    margin-top: 1.5em;
+    width: 14em;
+    height: 3em;
+    align-items: center;
+    box-shadow:0.5px 0px 0.5px 1px rgb(214, 229, 255);
+    border-radius: 5px;
+    line-height: 3em;
+    cursor: pointer;    
+}
+
+.col2-div-li:hover{
+    box-shadow: 3px 2px 5px rgb(200, 220, 255);
+    color: rgb(68, 206, 206);
+}
+
+.divcol2{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
 .myicon{
    width: 1.5em;
    height: 1.5em;
+  
 }
+.myicon1{
+    width: 1.5em;
+    height: 1.5em;
+   margin-left: 0.5em;
+}
+.myimag{
+    width: 1.5em;
+    height: 1.5em;
+   margin-left: 0.5em;
+   background-size:cover;
+//    background-color: aquamarine;
+}
+.myicon2{
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;  
+    border-radius: 50%;
+}
+.myicon2:hover{
+    box-shadow:2px 2px 8px 6px rgb(208, 225, 253);
+    background-color: #f4faff;
+}
+
 .el-aside::-webkit-scrollbar {
   /*滚动条整体样式*/
   width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
   height: 1px;
   }
+
   .el-aside::-webkit-scrollbar-thumb {
   /*滚动条里面小方块*/
   border-radius   : 10px;
@@ -205,6 +320,7 @@ export default {
       transparent 75%,
       transparent
   );
+
   }
   .el-aside::-webkit-scrollbar-track {
   /*滚动条里面轨道*/
@@ -220,15 +336,12 @@ export default {
     border-radius: 5px;
     
 }
-.Row-Col1{
-    
+.Row-Col1{   
     display: flex;
     width: 100%;
-    height: 100%;
-    
+    height: 100%;   
     justify-content: space-between;
     align-items: center;
-
 }
 
 
