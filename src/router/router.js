@@ -76,6 +76,78 @@ const routes = [
     ]
   },
 
+//  管理员登录路由
+  {
+   path: '/admin',
+   name: "admin",
+   component: () => import("../components/admin/AdministratorLogin.vue"),
+  },
+
+//  管理首页
+  {
+   path: '/interviewadmin',
+   name: "interviewadmin",
+   redirect:"/interviewadmin/adminhomepage",
+   component: () => import("../components/admin/InterviewAdmin.vue"),
+   children: [
+     //  管理首页
+      {
+         path:"adminhomepage",
+         name:"adminhomepage",
+         component:()=>import("../components/admin/AdminHomepage.vue"),
+      },
+      // 工具管理
+      {
+         path:"toolmanagement",
+         name:"toolmanagement",
+         component:()=>import("../components/admin/ToolManagement.vue"),
+      },
+      //  八股管理
+      {
+         path:"eightmanagement",
+         name:"eightmanagement",
+         component:()=>import("../components/admin/EightManagement.vue"),
+      },
+   //   技能管理
+      {
+         path:"skillmanagement",
+         name:"skillmanagement",
+         component:()=>import("../components/admin/SkillManagement.vue"),
+      },
+      //   学习管理
+      {
+         path:"learnmanagement",
+         name:"learnmanagement",
+         component:()=>import("../components/admin/LearnManagement.vue"),
+      },
+      //   本站信息
+      {
+         path:"thiswebsite",
+         name:"thiswebsite",
+         component:()=>import("../components/admin/ThisWebsite.vue"),
+      },
+      //   用户管理
+      {
+         path:"usermanagement",
+         name:"usermanagement",
+         component:()=>import("../components/admin/UserManagement.vue"),
+      },
+      //   管理员
+      {
+         path:"administrator",
+         name:"administrator",
+         component:()=>import("../components/admin/Administrator.vue"),
+      },
+      //   公告
+      {
+         path:"notice",
+         name:"notice",
+         component:()=>import("../components/admin/Notice.vue"),
+      },
+
+   ]
+  }
+
 ]
 
 const router = new VueRouter({

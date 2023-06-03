@@ -7,11 +7,22 @@
                     <el-container class="el-container">
                         <el-aside class="el-aside"  width="100%">
                             <el-menu  class="el-menu">
-                                <el-menu-item  :index="index1+''" v-for="(item,index1) in toolNavigation" :key="index1" @click.native="getTool(item,index1)">
-                                   <a :href="'#'+item.navigationId" class="a1">
+                                <el-menu-item  :index="index1+''" v-for="(item,index1) in toolNavigation" :key="index1">
+                                   <a :href="'#'+item.toolNavigationId" class="a1">
                                         <Row>
-                                            <Col span="24" class="Row-Col1"><span class="span1"><svg-icon :icon-class="item.navigationIcon" class="myicon"></svg-icon><span class="span2">{{item.navigationNmae}}</span> </span><i class="el-icon-arrow-right"></i></Col>    
+                                            <Col span="24" class="Row-Col1"><span class="span1"><img :src="item.toolNavigationIcon" class="myicon"/><span class="span2">{{item.toolNavigationNmae}}</span> </span><i class="el-icon-arrow-right"></i></Col>    
 
+                                        </Row>
+                                  </a>
+                                    
+                               </el-menu-item>
+                                 <!--关于本站 -->
+                               <el-menu-item  index="guanyubenzhan">
+                                   <a href="#guanyubenzhan" class="a1">
+                                        <Row>
+                                            <Col span="24" class="Row-Col1">     
+                                                <span class="span1"><img src="https://s1.ax1x.com/2023/05/28/p9O1S61.png" class="myicon"/><span class="span2">关于本站</span> </span><i class="el-icon-arrow-right"></i>
+                                            </Col>
                                         </Row>
                                   </a>
                                     
@@ -24,31 +35,50 @@
                 </Col>
                
                 <Col span="21" class="col2" >
-                   <div  :id="item.navigationId" class="divcol2" v-for="(item,index) in toolNavigation" :key="index">
+                   <div  :id="item.toolNavigationId" class="divcol2" v-for="(item,index) in toolNavigation" :key="index">
                         <span class="span12">
-                        <svg-icon :icon-class="item.navigationIcon" class="myicon"></svg-icon><span class="span2">{{item.navigationNmae}}</span>
+                        <img :src="item.toolNavigationIcon" class="myicon"/><span class="span2">{{item.toolNavigationNmae}}</span>
                         </span>
                         <div class="col2-div">
 
-                            <li class="col2-div-li" v-for="(item,index) in 15" :key="index" >
-                                <div class="col2-div2">
-                                    <el-tooltip class="myitem"  effect="light" content="除了这些基本设置外，还有一些属性可以让使用者更好的定制自己的效果：提示文字" placement="top-end">
-                                        <div class="col2-div2">
-                                            <img src="https://www.bilibili.com/favicon.ico?v=1" class="myimag"/> <span class="item1">一个木函工具箱</span> 
+                            <li class="col2-div-li" v-for="(item1,index) in item.allResource" :key="index" >
+                                <div class="col2-div2" @click="goWebSite(item1.resourceUrl)">
+                                    <el-tooltip class="myitem"  effect="dark" :content="item1.introduce" placement="top-end">
+                                        <div class="col2-div21">
+                                            <img :src="item1.resourceIcon" class="myimag"/> <span class="item1">{{item1.resourceName  }}</span> 
                                         </div>
                                     </el-tooltip>
-                                    <el-tooltip class="myitem" effect="light" content="传送门" placement="top-end">
+                                    <el-tooltip class="myitem" effect="dark" content="传送门" placement="top-end">
+                                       <svg-icon icon-class="youjiantou" class="myicon2"></svg-icon>
+                                    </el-tooltip>
+                                </div>
+                            </li>
+                            
+                        </div>                   
+                  </div>
+
+                    <!--关于本站 -->
+                  <div  id="guanyubenzhan" class="divcol2">
+                        <span class="span12">
+                        <img src="https://s1.ax1x.com/2023/05/28/p9O1S61.png" class="myicon"/><span class="span2">关于本站</span>
+                        </span>
+                        <div class="col2-div">
+
+                            <li class="col2-div-li" v-for="(item1,index) in 15" :key="index"  >
+                                <div class="col2-div2">
+                                    <el-tooltip class="myitem"  effect="dark" content="item1.introduce" placement="top-end">
+                                        <div class="col2-div21">
+                                            <img src="https://s1.ax1x.com/2023/05/28/p9O1S61.png" class="myimag"/> <span class="item1">关于本站</span> 
+                                        </div>
+                                    </el-tooltip>
+                                    <el-tooltip class="myitem" effect="dark" content="传送门" placement="top-end">
                                     <svg-icon icon-class="youjiantou" class="myicon2"></svg-icon>
                                 </el-tooltip>
                                 </div>
                             </li>
-                        
-                            
-                            
-                        </div>
-                    
+    
+                        </div>                   
                   </div>
-                  
                 </Col>
             </Row>
         </div>
@@ -64,112 +94,34 @@ export default {
 
     data() {
         return {
-        toolNavigation:[
-           {
-                navigationId:"aitools",
-                navigationIcon:"ai",
-                navigationNmae:"AI工具",
-  
-            },
-            {
-                navigationId:"utilitiestools",
-                navigationIcon:"gongju",
-                navigationNmae:"实用工具",
-                
-            },
-            {
-                navigationId:"learningeducation",
-                navigationIcon:"jiaoyu",
-                navigationNmae:"学习教育",
-                
-            },
-            {
-                navigationId:"officematerials",
-                navigationIcon:"sucaiku",
-                navigationNmae:"办公素材",
-               
-            },
-            {
-                navigationId:"onlinetools",
-                navigationIcon:"gongju_1",
-                navigationNmae:"在线工具",
-                
-            },
-            {
-                navigationId:"Programtools",
-                navigationIcon:"code",
-                navigationNmae:"编程工具",
-                
-            },
-            {
-                navigationId:"technicalcommunity",
-                navigationIcon:"shequ",
-                navigationNmae:"技术社区",
-                
-            },
-            {
-                navigationId:"beautifulmusic",
-                navigationIcon:"yinle",
-                navigationNmae:"动听音乐",
-               
-            },
-            {
-                navigationId:"livedramachasing",
-                navigationIcon:"zhibo",
-                navigationNmae:"直播追剧",
-               
-            },
-            {
-                navigationId:"entertainmentsites",
-                navigationIcon:"yulezhandian",
-                navigationNmae:"娱乐站点",
-                
-            },
-            {
-                navigationId:"blogforum",
-                navigationIcon:"boke",
-                navigationNmae:"博客论坛",
-                
-            },
-            
-            {
-                navigationId:"jobsearchnavigation",
-                navigationIcon:"qiuzhi",
-                navigationNmae:"求职导航",
-                
-            },
-            {
-                navigationId:"onlinenavigation",
-                navigationIcon:"daohang-",
-                navigationNmae:"在线导航",
-              
-            },
-            {
-                navigationId:"other",
-                navigationIcon:"qita",
-                navigationNmae:"其他",
-            
-            },
-            {
-                navigationId:"aboutthiswebsite",
-                navigationIcon:"guanyu",
-                navigationNmae:"关于本站",
-                
-            },
-        ]
-
-            
+        toolNavigation:[],           
         };
     },
 
     mounted() {
-        
+        this.getAllResource();
     },
 
     methods: {
-        getTool(item,index1){
-            console.log(item);
-        }
+       getAllResource(){
+
+        this.$axios({
+                method: "GET",
+                url: "/interview/allresource",
+       }).then((res) => {
+        if(res.data.code == 200){
+               this.toolNavigation = res.data.data;
+               console.log(res.data);
+        }else{
+           this.$Message.info(res.data.message);
+         }      
+       }).catch((res) => {});
+
+       },
+
+       goWebSite(res){
+        window.open(res,"_blank")
+       }
     },
 };
 </script>
@@ -221,6 +173,7 @@ export default {
 }
 .span2{
     margin-left: 0.5em;
+    
 }
 .el-container{
     height: 98%; 
@@ -232,6 +185,8 @@ export default {
     height: 100%;
     overflow: auto;
     scroll-behavior: smooth;
+
+    border-radius: 1em;
 }
 
 .col2-div{
@@ -243,9 +198,20 @@ export default {
     // background-color: aqua;
     align-items: center;
     justify-content: space-between;
+    background-image:linear-gradient(0deg,#ffffff 30%, #eefaff 100%)
+}
+.col2-div21{
+    // background-color: aquamarine;
+    display: flex;
+    height: 3em;
+    width: 15em;
+    align-items: center;
+ 
+    
 }
 .item1{
-    margin-left: 1em;
+    margin-left: 0.5em;
+    
 }
 .col2-div-li{
     display: inline-block;
@@ -259,6 +225,7 @@ export default {
     border-radius: 5px;
     line-height: 3em;
     cursor: pointer;    
+    color: rgb(0, 0, 0);
 }
 
 .col2-div-li:hover{
@@ -294,6 +261,7 @@ export default {
     height: 1em;
     margin-right: 0.5em;  
     border-radius: 50%;
+   
 }
 .myicon2:hover{
     box-shadow:2px 2px 8px 6px rgb(208, 225, 253);
