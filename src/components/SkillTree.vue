@@ -16,25 +16,32 @@
                 </div>
             
            </Col>
-           <Col span="3" class="center">
+           <Col span="3" class="center" v-show="skillMenber.length>0">
               <div class="center1">
-                <li  @click="isActive(item,index)" v-for="(item,index) in skillMenber " :key="index"  :class= "['myli',{ myli1: active == index } ]"><Icon class="iconli" color="#32CA99" type="ios-leaf-outline" />{{item.memberName}}</li>
+                <li  @click="isActive(item,index)" v-for="(item,index) in skillMenber " :key="index"  :class= "['myli',{ myli1: active == index } ]">
+                    <Icon class="iconli" color="#32CA99" type="ios-leaf-outline" />{{item.memberName}}
+                </li>
               </div>
 
            </Col>
 
-           <Col span="16" class="kokoko">
+           <Col span="16" class="kokoko" v-show="skillMenber.length>0">
           
             <div class="center11">
                
                  <v-md-editor class="md" :value="markdown" mode="preview"></v-md-editor>
-                
             </div>
-       
-             
-        
+           
+           </Col>
+
+           <Col span="19" v-show="skillMenber.length<=0">
+                  <div class="center11-div">
+                    <img class="img22" src="https://s1.ax1x.com/2023/06/09/pCElQG4.png">
+                 </div>
            </Col>
         </Row>
+
+        
     </div>
 </template>
 
@@ -103,8 +110,9 @@ export default {
             console.log(res);
                 if(res.data.code == 200){              
                    this.skillMenber = res.data.data;
+                  
                 }else{
-                    this.skillMenber = res.data.data;
+                    this.skillMenber = [];
                     this.$Message.info(res.data.message);
                     this.markdown="";
                     this.active = -1;
@@ -224,6 +232,17 @@ export default {
 }
 .myli1{
  background-color: rgb(217, 236, 255);
+}
+.center11-div{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.img22{
+    width: 20em;
+    height: 20em;
 }
 
 </style>

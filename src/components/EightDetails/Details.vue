@@ -9,16 +9,25 @@
 
 
             <Row class="row1">
-                <Col span="5" class="col41">
+                <Col span="5" class="col41" v-show="allTopic.length>0">
                     <li @click="topic(item,index)" v-for="(item,index) in allTopic " :key="index"  :class= "['row1-li',{ row1liSelected: topicSelected == index } ]" >
                         <span class="col41-span">{{ index+1 }}</span>
                         <span class="span1">{{item.topicText}}</span> 
                     </li>   
                 </Col>
                 
-                <Col span="19" class="col42">
-                    <div style="width:85em;">
+                <Col span="19" class="col42" v-show="allTopic.length>0">
+                    <div style="width:85em;" v-show="topicSelected!=-1">
                         <v-md-editor :value="markdown" mode="preview"></v-md-editor>
+                    </div>
+                    <div class="col42-div" v-show="topicSelected==-1">
+                       <img class="col42-div-img" src="https://s1.ax1x.com/2023/06/09/pCEluIU.png">
+                    </div>
+                </Col>
+
+                <Col class="col111" span="24" v-show="allTopic.length<=0">
+                    <div class="col42-div11" >
+                       <img class="col42-div-img1" src="https://s1.ax1x.com/2023/06/09/pCElMiF.png">
                     </div>
                 </Col>
            </Row>
@@ -178,5 +187,27 @@ export default {
     line-height: 2em;
     color: rgb(0, 0, 0);
 }
+.col42-div{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.col42-div-img{
+    width: 30em;
+    height: 30em;
+}
+.col42-div-img1{
+    width: 30em;
+    height: 30em;
+}
 
+.col42-div11{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+   
+}
 </style>

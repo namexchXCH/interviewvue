@@ -86,6 +86,7 @@
         name:"InterviewAdmin",
         data () {
             return {
+            
                 isCollapsed: false
             }
         },

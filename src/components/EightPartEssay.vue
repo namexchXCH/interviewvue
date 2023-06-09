@@ -62,34 +62,17 @@
                       <p style="margin-top: 2px; color: #000000">
                         {{ item.memberTitle }}
                       </p>
-                      <p
-                        style="
-                          margin-top: 2px;
-                          width: 185px;
-                          height: 45px;
-                          word-break: break-all;
-                          line-height: 1.2;
-                          font-size: 10px;
-                        "
+                      <p class="cardtext"
+                       
                       >
-                        {{ item.introduce }}
+                        {{ item.introduce }}Java 面试高频知识点详解，带你查缺补漏，轻松突破 Java 面试
                       </p>
-                      <div
-                        style="
-                          width: 185px;
-                          height: 19px;
-                          display: flex;
-                          align-items: center;
-                        "
-                      >
-                        <span v-show="item.isMemberRequired==1" style="color: #fb8334">会员专享</span
-                        ><span style="margin-left: 5px; height: 19px"
-                          ><img
-                            style="height: 19px"
-                            src="../../public/mag/眼睛.png" /></span
-                        ><span style="font-size: 10px">{{
-                          item.readerNumber
-                        }}</span>
+                      <div style=" width: 185px; height: 19px; display: flex; align-items: center;margin-top: 3px;">
+                        <span v-show="item.isMemberRequired==1" style="color: #fb8334">会员专享</span><span style="margin-left: 5px; height: 19px" >
+                          <img style="height: 19px" src="../../public/mag/眼睛.png" /></span>
+                          <span style="font-size: 10px">
+                          {{item.readerNumber }}
+                          </span>
                       </div>
                     </Col>
                   </Row>
@@ -116,14 +99,7 @@ export default {
       labelNumber: 0,
       cardList: [],
       isShowImage: 2,
-      EightTopic:[
-                  {    
-                    topicId:"八股 文题目id",
-                    memberId:"八股文题 目属于哪个模块id",
-                    topicText:"八股文题 目类容",
-                 } 
-              ]
-
+     
     };
   },
 
@@ -287,5 +263,20 @@ export default {
   height: 86px;
  border-radius: 4px;
  margin-left: 2px;                                           
+}
+.cardtext{
+ 
+  margin-top: 2px;
+  width: 185px;
+  height: 42px;
+  word-break: break-all;
+  line-height: 1.2;
+  font-size: 10px;
+   display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+                        
 }
 </style>

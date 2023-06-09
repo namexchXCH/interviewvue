@@ -198,7 +198,7 @@ export default {
     // background-color: aqua;
     align-items: center;
     justify-content: space-between;
-    background-image:linear-gradient(0deg,#ffffff 30%, #eefaff 100%)
+    background-image:linear-gradient(0deg,#ffffff 30%, #f8fdff 100%)
 }
 .col2-div21{
     // background-color: aquamarine;
@@ -221,7 +221,7 @@ export default {
     width: 14em;
     height: 3em;
     align-items: center;
-    box-shadow:0.5px 0px 0.5px 1px rgb(214, 229, 255);
+    box-shadow: 0 0 5px rgb(193, 216, 255);
     border-radius: 5px;
     line-height: 3em;
     cursor: pointer;    
