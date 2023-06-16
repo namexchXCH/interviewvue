@@ -47,16 +47,26 @@ import VMdEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
 import '@kangc/v-md-editor/lib/theme/style/github.css';
-import hljs from 'highlight.js';
+// import hljs from 'highlight.js';
 import createCopyCodePlugin from '@kangc/v-md-editor/lib/plugins/copy-code/index';
 import '@kangc/v-md-editor/lib/plugins/copy-code/copy-code.css';
 import createLineNumbertPlugin from '@kangc/v-md-editor/lib/plugins/line-number/index';
 import createHighlightLinesPlugin from '@kangc/v-md-editor/lib/plugins/highlight-lines/index';
 import '@kangc/v-md-editor/lib/plugins/highlight-lines/highlight-lines.css';
+import createEmojiPlugin from '@kangc/v-md-editor/lib/plugins/emoji/index';
+import '@kangc/v-md-editor/lib/plugins/emoji/emoji.css';
+import createAlignPlugin from '@kangc/v-md-editor/lib/plugins/align';
+
+
 import vuepressTheme from "@kangc/v-md-editor/lib/theme/vuepress.js";
+// 引入所有语言包
+import hljs from 'highlight.js';
+
 VMdEditor.use(createLineNumbertPlugin());
 VMdEditor.use(createCopyCodePlugin());
-VMdEditor.use(createHighlightLinesPlugin)
+VMdEditor.use(createHighlightLinesPlugin);
+VMdEditor.use(createEmojiPlugin());
+VMdEditor.use(createAlignPlugin());
 VMdEditor.use(githubTheme, {
   Hljs: hljs,
 });

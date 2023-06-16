@@ -9,6 +9,7 @@
              <Layout class="layout-layout">
                 <Sider ref="side1" hide-trigger collapsible :collapsed-width="78" v-model="isCollapsed" class="Sider1">
                     <Menu active-name="1" theme="light" width="auto" :class="menuitemClasses" class="Menu1">
+                        
                         <MenuItem name="1" @click.native="AdminHomepage">
                             <Icon type="ios-keypad" color="#3A89EA" />
                             <span>首页</span>
@@ -34,19 +35,19 @@
                             <span>学习管理</span>
                         </MenuItem>
 
-                        <MenuItem name="6" @click.native="ThisWebsite">
-                            <Icon type="ios-infinite" color="#53D7D0" />
-                            <span>本站信息</span>
-                        </MenuItem>
-
-                        <MenuItem name="7" @click.native="UserManagement">
+                        <MenuItem name="6" @click.native="UserManagement">
                             <Icon type="md-contacts" color="#AC72EA" />
                             <span>用户管理</span>
                         </MenuItem>
 
-                        <MenuItem name="8" @click.native="Administrator">
+                        <MenuItem name="7" @click.native="Administrator">
                             <Icon type="md-person" color="#C82F25" />
                             <span>管理员</span>
+                        </MenuItem>
+
+                        <MenuItem name="8" @click.native="ThisWebsite">
+                            <Icon type="ios-infinite" color="#53D7D0" />
+                            <span>本站信息</span>
                         </MenuItem>
 
                         <MenuItem name="9" @click.native="goNotice">

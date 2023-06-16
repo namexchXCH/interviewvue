@@ -24,11 +24,11 @@
         <Col span="5"></Col>
       </Row>
     </div>
-    <div style="margin-top: 2em">
-      <Row>
-        <Col span="3"></Col>
+    <div class="center123" style="margin-top: 2em">
+      <Row class="row123">
+        <Col span="2"></Col>
         <transition name="el-fade-in-linear">
-          <Col span="18">
+          <Col span="20" class="row-col123">
           <div v-show="this.isShowImage < 1">
             <div class="showjiaban">
               <svg-icon icon-class="zhanwushuju" class="icon"></svg-icon>
@@ -59,14 +59,17 @@
                     </Col>
 
                     <Col span="17">
-                      <p style="margin-top: 2px; color: #000000">
-                        {{ item.memberTitle }}
-                      </p>
-                      <p class="cardtext"
-                       
-                      >
-                        {{ item.introduce }}Java 面试高频知识点详解，带你查缺补漏，轻松突破 Java 面试
-                      </p>
+                      <Tooltip  max-width="200" :content="item.introduce" placement="bottom">
+                        <p style="margin-top: 2px; color: #000000">
+                          {{ item.memberTitle }}
+                        </p>
+                        <p class="cardtext"
+                        
+                        >
+                          {{ item.introduce }}
+                        </p>
+               
+                    
                       <div style=" width: 185px; height: 19px; display: flex; align-items: center;margin-top: 3px;">
                         <span v-show="item.isMemberRequired==1" style="color: #fb8334">会员专享</span><span style="margin-left: 5px; height: 19px" >
                           <img style="height: 19px" src="../../public/mag/眼睛.png" /></span>
@@ -74,6 +77,7 @@
                           {{item.readerNumber }}
                           </span>
                       </div>
+                    </Tooltip>
                     </Col>
                   </Row>
                 </div>
@@ -83,7 +87,7 @@
         </Col>
        </transition>
       
-        <Col span="3"></Col>
+        <Col span="2"></Col>
       </Row>
     </div>
   </div>
@@ -182,6 +186,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.pageone{
+  height: 100%;
+  width: 100%;
+}
 .baioqianp {
   margin-top: 2em;
 
@@ -277,6 +285,20 @@ export default {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
+
                         
+}
+.center123{
+  height: 80%;
+  width: 100%;
+}
+.row123{
+ height: 100%;
+ overflow: auto;
+
+}
+.row-col123{
+  height: 100%;
+
 }
 </style>

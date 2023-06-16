@@ -144,6 +144,12 @@ const routes = [
          name:"notice",
          component:()=>import("../components/admin/Notice.vue"),
       },
+      {
+         path:"eightmoduledetail",
+         name:"eightmoduledetail",
+         component:()=>import("../components/admin/EightModuleDetail.vue"),
+      },
+
 
    ]
   }

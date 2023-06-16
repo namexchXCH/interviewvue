@@ -276,9 +276,7 @@ export default {
                 });
             },
 
-       switch11(row,index){
-
-        
+       switch11(row,index){       
         this.$axios({
                 method: "GET",
                 url: "/interview/changeactive",
