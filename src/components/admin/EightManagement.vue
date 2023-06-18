@@ -6,7 +6,7 @@
                     <Menu class="menu" :theme="theme2"  :open-names="['1']"  mode="vertical" width="auto">
                         <MenuItem @click.native="getEightallMember(item,index)" :name="1+index+''" v-for="(item,index) in Eightalllabel" :key="index" class="itemMenuItem">
                             <Icon type="md-arrow-dropright" color="#007ACC"  />
-                         {{ item.labelText}}
+                             {{ item.labelText}}
                         </MenuItem>   
                         <div style="width:100%;display: flex;justify-content: center;margin-top: 1em;">
                             <Button @click="modal10 = true" type="success" ghost  shape="circle" icon="md-add">新增标签</Button>
@@ -456,7 +456,7 @@ export default {
             this.addnewmodule = true;
         },
         addNewEightModule(){
-            this.$Message.success('新增成dfghd功');
+          
             this.loading();
            this.formItem1.labelId = this.nowModule.labelId;
             this.$axios({
@@ -532,8 +532,8 @@ export default {
     border-radius: 5px;
 }
 .itemMenuItem{
-    color: #525252;
-   
+    width: 100;
+    color: #525252;  
 }
 
 .row{

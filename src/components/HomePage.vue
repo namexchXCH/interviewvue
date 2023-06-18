@@ -6,7 +6,7 @@
           <img src="../../public/mag/16UHJ4)6(8IX3MXHM[9XERU.png" class="img" />
         </div>
       </Col>
-      <Col span="9">
+      <Col span="14">
 
         <Menu mode="horizontal" :theme="theme1" active-name="1">
 
@@ -16,7 +16,7 @@
           </MenuItem>
           <MenuItem name="2" @click.native="goToolLibrary">
             <Icon type="ios-construct" color="#E5010F" size="16" />
-            工具库
+            ...导航
           </MenuItem>
           <MenuItem name="3" @click.native="goEightPartEssay">
             <Icon type="ios-book" color="#009961" size="16" />
@@ -46,7 +46,7 @@
         </Menu>
       </Col>
 
-      <Col span="5"> </Col>
+      <!-- <Col span="5"> </Col> -->
 
       <Col span="6">
         <div class="topright">

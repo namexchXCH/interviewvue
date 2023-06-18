@@ -9,22 +9,25 @@
 
 
             <Row class="row1">
-                <Col span="5" class="col41" v-show="allTopic.length>0">
+                <Col span="4"  v-show="allTopic.length>0">
+                </Col>
+                <Col span="4" class="col41" v-show="allTopic.length>0">
                     <li @click="topic(item,index)" v-for="(item,index) in allTopic " :key="index"  :class= "['row1-li',{ row1liSelected: topicSelected == index } ]" >
                         <span class="col41-span">{{ index+1 }}</span>
                         <span class="span1">{{item.topicText}}</span> 
                     </li>   
                 </Col>
                 
-                <Col span="19" class="col42" v-show="allTopic.length>0">
-                    <div style="width:85em;" v-show="topicSelected!=-1">
+                <Col span="12" class="col42" v-show="allTopic.length>0">
+                    <div style="width:100%;" v-show="topicSelected!=-1">
                         <v-md-editor :value="markdown" mode="preview"></v-md-editor>
                     </div>
                     <div class="col42-div" v-show="topicSelected==-1">
                        <img class="col42-div-img" src="https://s1.ax1x.com/2023/06/09/pCEluIU.png">
                     </div>
                 </Col>
-
+                <Col span="4"  v-show="allTopic.length>0">
+                </Col>
                 <Col class="col111" span="24" v-show="allTopic.length<=0">
                     <div class="col42-div11" >
                        <img class="col42-div-img1" src="https://s1.ax1x.com/2023/06/09/pCElMiF.png">
@@ -153,9 +156,17 @@ export default {
     height: 100%;
     overflow: auto;
 }
+.col41::-webkit-scrollbar{
+    width: 0.5em;
+}
 .col42{
+    display: flex;
     height: 100%;
     overflow: auto;
+    justify-content: center;
+}
+.col42::-webkit-scrollbar{
+    width: 0.2em;
 }
 .row1-li{
     height: 2em;
@@ -165,6 +176,11 @@ export default {
     line-height: 2em;
     border-radius: 5px;
     cursor: pointer;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 
 }
 .row1-li:hover{
@@ -210,4 +226,5 @@ export default {
     justify-content: center;
    
 }
+
 </style>

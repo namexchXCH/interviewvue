@@ -148,7 +148,7 @@ export default {
                     },
              
                     {
-                        title: 'Action',
+                        title: '操作',
                         slot: 'action',
                         width: 150,
                         align: 'center'

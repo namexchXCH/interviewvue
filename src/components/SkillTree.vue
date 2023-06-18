@@ -1,7 +1,9 @@
 <template>
     <div class="one">
         <Row class="ROW1">
-           <Col span="5" class="ROW1-span">
+            <Col span="3" style="background: '#fff'"  >
+            </Col>
+           <Col span="4" class="ROW1-span">
             
                 <div class="cebian">
                     <Sider hide-trigger :style="{background: '#fff' }" class="Sider1">
@@ -16,6 +18,7 @@
                 </div>
             
            </Col>
+
            <Col span="3" class="center" v-show="skillMenber.length>0">
               <div class="center1">
                 <li  @click="isActive(item,index)" v-for="(item,index) in skillMenber " :key="index"  :class= "['myli',{ myli1: active == index } ]">
@@ -25,16 +28,16 @@
 
            </Col>
 
-           <Col span="16" class="kokoko" v-show="skillMenber.length>0">
-          
+           <Col span="12" class="kokoko" v-show="skillMenber.length>0">         
             <div class="center11">
                
                  <v-md-editor class="md" :value="markdown" mode="preview"></v-md-editor>
-            </div>
-           
+            </div>         
            </Col>
 
-           <Col span="19" v-show="skillMenber.length<=0">
+           <Col span="2" >
+           </Col>
+           <Col span="14" v-show="skillMenber.length<=0">
                   <div class="center11-div">
                     <img class="img22" src="https://s1.ax1x.com/2023/06/09/pCElQG4.png">
                  </div>
@@ -153,9 +156,10 @@ export default {
 }
 .ROW1-span{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     height: 100%;
     align-items: center;
+    // background-color: aqua;
 
    
  
@@ -192,16 +196,13 @@ export default {
 .kokoko{
     height: 100%;
     width: 50em;
-    display: flex;
-   
-    justify-content: center;
-    
+
   
 }
 .center11{
     margin-top: 1em;
     height: 95%;
-    width: 70em;
+    width: 100%;
     overflow: auto;
     border-radius: 10px;
    
