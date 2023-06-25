@@ -74,17 +74,17 @@
                         </FormItem>
                 </Form>   
                 <div slot="footer">
-                <Row >
-                  <Col span="8"></Col>
-                  <Col span="8" class="col6">
-                    <div class="col6-div">
-                        <Button @click="ExitEditEditEightTitle">取消</Button>   <Button @click="ConfirmSaveEditEightTitle" :loading="loading1" type="primary" >保存</Button>
-                    </div>
-                  </Col>
-                  <Col span="8"></Col>
-                </Row>
+                    <Row >
+                    <Col span="8"></Col>
+                    <Col span="8" class="col6">
+                        <div class="col6-div">
+                            <Button @click="ExitEditEditEightTitle">取消</Button>   <Button @click="ConfirmSaveEditEightTitle" :loading="loading1" type="primary" >保存</Button>
+                        </div>
+                    </Col>
+                    <Col span="8"></Col>
+                    </Row>
            
-            </div>
+                </div>
             </Modal>
 
 
@@ -501,9 +501,7 @@ export default {
     width: 100%;
     height: 100%;
  }
- .col6{
 
- }
  .col6-div{
     display: flex;
     width: 100%;
