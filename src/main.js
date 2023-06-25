@@ -55,6 +55,10 @@ import '@kangc/v-md-editor/lib/plugins/highlight-lines/highlight-lines.css';
 import createEmojiPlugin from '@kangc/v-md-editor/lib/plugins/emoji/index';
 import '@kangc/v-md-editor/lib/plugins/emoji/emoji.css';
 import createAlignPlugin from '@kangc/v-md-editor/lib/plugins/align';
+import createTipPlugin from '@kangc/v-md-editor/lib/plugins/tip/index';
+import '@kangc/v-md-editor/lib/plugins/tip/tip.css';
+
+
 
 // 引入所有语言包
 import hljs from 'highlight.js';
@@ -64,6 +68,7 @@ VMdEditor.use(createCopyCodePlugin());
 VMdEditor.use(createHighlightLinesPlugin);
 VMdEditor.use(createEmojiPlugin());
 VMdEditor.use(createAlignPlugin());
+VMdEditor.use(createTipPlugin());
 VMdEditor.use(githubTheme, {
   Hljs: hljs,
 });

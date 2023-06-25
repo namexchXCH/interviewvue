@@ -2,7 +2,6 @@
   <div id="app">
 
    <router-view></router-view>
-   <!-- <ViewEditer></ViewEditer> -->
 
   </div>
 </template>
@@ -27,12 +26,11 @@ window.ResizeObserver = class ResizeObserver extends _ResizeObserver{
     super(callback);
   }
 }
-import ViewEditer from './components/ViewEditer.vue'
 
 export default {
   name: 'App',
   components: {
-    ViewEditer
+
   },
 
   mounted(){

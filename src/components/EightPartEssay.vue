@@ -193,7 +193,7 @@ export default {
 .baioqianp {
   margin-top: 2em;
 
-  box-shadow: 0 0 20px rgb(217, 226, 241);
+  box-shadow: 0 0 10px rgb(234, 242, 255);
 
   border-radius: 8px;
 }
@@ -203,7 +203,7 @@ export default {
   width: 6em;
   margin-top: 0.5em;
   margin-left: 1em;
-  border-radius: 20px;
+  border-radius: 8px;
   line-height: 2em;
   text-align: center;
 
@@ -213,6 +213,7 @@ export default {
  
   background-color: #bbcfff;
   cursor: pointer;
+  box-shadow: 0 0 10px rgb(214, 230, 255);
   
 }
 

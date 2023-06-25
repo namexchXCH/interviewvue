@@ -5,8 +5,8 @@
             
                     <Menu class="menu" :theme="theme2"  :open-names="['1']"  mode="vertical" width="auto">
                         <MenuItem @click.native="getEightallMember(item,index)" :name="1+index+''" v-for="(item,index) in Eightalllabel" :key="index" class="itemMenuItem">
-                            <Icon type="md-arrow-dropright" color="#007ACC"  />
-                             {{ item.labelText}}
+                            <Icon style="display: inline-block;" type="md-arrow-dropright" color="#007ACC"  />
+                            <span class="textspan2"><span class="textspan1">{{ item.labelText}}</span></span>
                         </MenuItem>   
                         <div style="width:100%;display: flex;justify-content: center;margin-top: 1em;">
                             <Button @click="modal10 = true" type="success" ghost  shape="circle" icon="md-add">新增标签</Button>
@@ -113,7 +113,7 @@
                     </FormItem>
                    
                     <FormItem label="介绍">
-                        <Input v-model="formItem1.introduce" maxlength="60" show-word-limit type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入介绍..."></Input>
+                        <Input v-model="formItem1.introduce" maxlength="35" show-word-limit type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入介绍..."></Input>
                     </FormItem>
                 </Form>
             </Modal>
@@ -135,7 +135,7 @@
                     </FormItem>
                    
                     <FormItem label="介绍">
-                        <Input v-model="formItem.introduce" maxlength="60" show-word-limit type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入介绍..."></Input>
+                        <Input v-model="formItem.introduce" maxlength="35" show-word-limit type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入介绍..."></Input>
                     </FormItem>
                 </Form>
             </Modal>
@@ -532,10 +532,26 @@ export default {
     border-radius: 5px;
 }
 .itemMenuItem{
+    display: flex;
     width: 100;
     color: #525252;  
+    align-items: center;
 }
+.textspan1{
 
+ width:7em;
+ height: 1.5em;
+ display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+.textspan2{
+    display: inline-block;
+    width:7em;
+    height: 1.5em;
+}
 .row{
     height: 100%;
     width: 100%;
@@ -643,14 +659,15 @@ export default {
     margin-left: 45%;
 }
 .div-text1{
+    display: inline-block;
      margin-top: 0.1em;
      margin-left: 0.2em;
      color: #000000;
      cursor: pointer;
 }
 .div-text2{
-    height: 3.8em;
-    width: 98%;
+    height: 3.2em;
+    width: 18em;
     margin-left: 0.2em;
     font-size: 10px;     
     display: -webkit-box;

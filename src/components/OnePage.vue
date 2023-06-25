@@ -1,15 +1,14 @@
 <template>
   <div class="divone">
-    
     <Row class="row1">
-        <Col span="24">col-12</Col>
-        
-    </Row>
-    <Row class="row2">
-        <Col span="3" class="row2-col1">col-12</Col>
-        <Col span="3" class="row2-col2">col-12</Col>
-        <Col span="15" class="row2-col3">col-12</Col>
-        <Col span="3" class="row2-col4">col-12</Col>
+        <Col span="4" class="row1-col1"></Col>
+        <Col span="16" class="row1-col2">
+          <div class="center11">
+            <v-md-editor :value="markdown" mode="preview" class="editor" ></v-md-editor>
+          </div>
+      
+        </Col>
+        <Col span="4" style="" class="row1-col3"></Col>
     </Row>
   </div>
   
@@ -21,13 +20,27 @@ export default {
 
   data() {
     return {
-      
+      markdown:""
     };
   },
 
-  mounted() {},
+  mounted() {
+     this.getOnePageData();
+  },
+  
 
-  methods: {},
+  methods: {
+    getOnePageData(){
+      this.$axios({
+       method: "GET",
+       url: "/interview/onepagedata",
+       }).then((res) => {
+          this.markdown = res.data.data.onePageText;
+       }).catch((res) => {
+                    
+       });   
+    }
+  },
 };
 </script>
 
@@ -37,27 +50,23 @@ export default {
   height: 100%;
 }
 .row1{
-    height: 20%;
-    background-color: aqua;
-    
+    height: 100%;
+    overflow: auto;
 }
-.row2{
-    height: 80%;
-    background-color: rgb(55, 145, 145);
-    
+.row1-col2{
+  width: 100%;
+  height: 100%;
+ 
 }
+.center11{
 
-.row2-col1{
-    background-color: rgb(23, 66, 66);
 }
-
-.row2-col2{
-    background-color: rgb(185, 149, 166);
+.editor{
+  margin-top: 1em;
 }
-.row2-col3{
-    background-color: bisque;
-}
-.row2-col4{
-    background-color: rgb(23, 66, 66);
+.img{
+  height: 12em;
+  width: 12em;
+  border-radius: 50%;
 }
 </style>

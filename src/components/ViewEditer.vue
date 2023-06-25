@@ -26,14 +26,13 @@ export default {
   mounted() {
 
 
-    console.log(this);
+  
     this.markdown = "  "
   },
 
   methods: {
     nuihu() {
        this.markdown = this.text;
-
       console.log(this.text);
     },
   },

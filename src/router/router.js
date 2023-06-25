@@ -44,20 +44,20 @@ const routes = [
         component:()=>import("../components/SkillTree.vue"),
      },
      {
-        path:"courserecom",
-        name:"courserecom",
-        component:()=>import("../components/CourseRecom.vue"),
+        path:"learnsharing",
+        name:"learnsharing",
+        component:()=>import("../components/LearnSharing.vue"),
      },
-     {
-        path:"projectpractice",
-        name:"projectpractice",
-        component:()=>import("../components/ProjectPractice.vue"),
-     },
-     {
-        path:"bookrecom",
-        name:"bookrecom",
-        component:()=>import("../components/BookRecom.vue"),
-     },
+   //   {
+   //      path:"projectpractice",
+   //      name:"projectpractice",
+   //      component:()=>import("../components/ProjectPractice.vue"),
+   //   },
+   //   {
+   //      path:"bookrecom",
+   //      name:"bookrecom",
+   //      component:()=>import("../components/BookRecom.vue"),
+   //   },
      {
       path:"personalhomepage",
       name:"personalhomepage",

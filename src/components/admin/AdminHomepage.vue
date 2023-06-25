@@ -246,34 +246,42 @@ export default {
             //  工具管理
             ToolManagement(){
                 this.$router.push("/interviewadmin/toolmanagement");
+              
             },
             //  八股管理
             EightManagement(){
                 this.$router.push("/interviewadmin/eightmanagement");
+              
             },
             //   技能管理
             SkillManagement(){
                 this.$router.push("/interviewadmin/skillmanagement");
+              
             },
             //   学习管理
             LearnManagement(){
                 this.$router.push("/interviewadmin/learnmanagement");
+               
             },
             //   本站信息
             ThisWebsite(){
                 this.$router.push("/interviewadmin/thiswebsite");
+               
             },
              //   用户管理
             UserManagement(){
                 this.$router.push("/interviewadmin/usermanagement");
+                
             },
             //   管理员
             Administrator(){
                 this.$router.push("/interviewadmin/administrator"); 
+                this.$Loading.finish();
             },
             //   公告
             goNotice(){
                 this.$router.push("/interviewadmin/notice"); 
+                this.$Loading.finish();
             }
     },
 };
@@ -285,6 +293,7 @@ export default {
     width: 100%;  
     border-radius: 5px;
     background-color:#F5F7F9;
+    
    
 }
 .divone1{

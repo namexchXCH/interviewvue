@@ -1,12 +1,12 @@
 <template>
     <div>
-        课程推 荐
+    学习分享
     </div>
 </template>
 
 <script>
 export default {
-    name: 'CourseRecom',
+    name: 'LearnSharing',
 
     data() {
         return {

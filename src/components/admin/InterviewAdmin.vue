@@ -32,7 +32,7 @@
 
                         <MenuItem name="5" @click.native="LearnManagement">
                             <Icon type="md-school"  color="#FF78B8"/>
-                            <span>学习管理</span>
+                            <span>分享管理</span>
                         </MenuItem>
 
                         <MenuItem name="6" @click.native="UserManagement">
@@ -112,38 +112,48 @@
             //  管理首页
             AdminHomepage(){
                 this.$router.push("/interviewadmin/adminhomepage");
+                this.$Loading.finish();
+
             },
             //  工具管理
             ToolManagement(){
                 this.$router.push("/interviewadmin/toolmanagement");
+                this.$Loading.finish();
             },
             //  八股管理
             EightManagement(){
                 this.$router.push("/interviewadmin/eightmanagement");
+                this.$Loading.finish();
             },
             //   技能管理
             SkillManagement(){
                 this.$router.push("/interviewadmin/skillmanagement");
+                this.$Loading.finish();
             },
             //   学习管理
             LearnManagement(){
                 this.$router.push("/interviewadmin/learnmanagement");
+                this.$Loading.finish();
             },
             //   本站信息
             ThisWebsite(){
                 this.$router.push("/interviewadmin/thiswebsite");
+                this.$Loading.finish();
             },
              //   用户管理
             UserManagement(){
                 this.$router.push("/interviewadmin/usermanagement");
+                this.$Loading.finish();
             },
             //   管理员
             Administrator(){
                 this.$router.push("/interviewadmin/administrator"); 
+                this.$Loading.finish();
             },
             //   公告
             goNotice(){
                 this.$router.push("/interviewadmin/notice"); 
+                this.$Loading.finish();
             }
 
         }
@@ -151,10 +161,12 @@
 </script>
 <style scoped>
 .one1{
-    
+
     height:100vh;
     width: 100vw;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+
+    
 }
 .layout{
 
@@ -162,6 +174,7 @@
  position: relative;
  border-radius: 4px;
  overflow: hidden;
+
         
  }
  .layout-layout{

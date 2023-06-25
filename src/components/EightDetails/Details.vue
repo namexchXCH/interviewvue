@@ -118,6 +118,7 @@ export default {
 .div1{
     height: 100%;
     width: 100%;
+    
 }
 .div2{
     width: 93%;
@@ -201,7 +202,9 @@ export default {
     width: 3em;
     height: 2em;
     line-height: 2em;
-    color: rgb(0, 0, 0);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #0b59c7;
+    font-style: italic;
 }
 .col42-div{
     display: flex;

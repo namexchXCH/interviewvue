@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class="top11">
     <Row class="top">
       <Col span="4">
         <div class="logo">
-          <img src="../../public/mag/16UHJ4)6(8IX3MXHM[9XERU.png" class="img" />
+          <img src="https://s1.ax1x.com/2023/06/24/pCtaRHS.png" class="img" />
+          <span class="logotitle">小熊coding</span>
         </div>
       </Col>
       <Col span="14">
@@ -16,20 +17,25 @@
           </MenuItem>
           <MenuItem name="2" @click.native="goToolLibrary">
             <Icon type="ios-construct" color="#E5010F" size="16" />
-            ...导航
+            工具导航
           </MenuItem>
           <MenuItem name="3" @click.native="goEightPartEssay">
             <Icon type="ios-book" color="#009961" size="16" />
-            面试八股
+            八股汇总
           </MenuItem>
           <MenuItem name="4" @click.native="goSkillTree">
             <Icon type="ios-nuclear" color="#0DBC79" size="16" />
-            技能树
+            技能学习
           </MenuItem>
-          <Submenu name="5">
+          <MenuItem name="5" @click.native="goLearnSharing">
+            <Icon type="ios-stats" color="#5FC948" size="16" />
+              学习分享
+          </MenuItem>
+
+          <!-- <Submenu name="5">
             <template slot="title">
               <Icon type="ios-stats" color="#5FC948" size="16" />
-              学习
+              学习分享
             </template>
 
             <MenuItem name="5-1" @click.native="goCourseRecom"
@@ -41,7 +47,7 @@
             <MenuItem name="5-3" @click.native="goBookRecom"
               ><Icon type="md-book" color="#FC8A15" />书籍推荐</MenuItem
             >
-          </Submenu>
+          </Submenu> -->
 
         </Menu>
       </Col>
@@ -230,32 +236,38 @@ export default {
       });
     },
     goOnePage(e) {
-      console.log(e);
       this.$router.push("/");
+      this.$Loading.finish();
     },
     goToolLibrary() {
       this.$router.push("/home/mytoollibrary");
+      this.$Loading.finish();
     },
 
     goEightPartEssay() {
       this.$router.push("/home/eighteartessay");
+      this.$Loading.finish();
     },
 
     goSkillTree() {
       this.$router.push("/home/skilltree");
+      this.$Loading.finish();
     },
+    goLearnSharing(){
+      this.$router.push("/home/learnsharing");
+      this.$Loading.finish();
+    },
+    // goCourseRecom() {
+    //  
+    // },
 
-    goCourseRecom() {
-      this.$router.push("/home/courserecom");
-    },
+    // goProjectPractice() {
+    //   this.$router.push("/home/projectpractice");
+    // },
 
-    goProjectPractice() {
-      this.$router.push("/home/projectpractice");
-    },
-
-    goBookRecom() {
-      this.$router.push("/home/bookrecom");
-    },
+    // goBookRecom() {
+    //   this.$router.push("/home/bookrecom");
+    // },
     goPersonhome(){
       this.$router.push("/home/personalhomepage");
     },
@@ -270,26 +282,36 @@ export default {
 
 <style lang="css" scoped>
 
-
+.top11{
+  border-top: 1px solid rgb(224, 224, 224);
+}
 .top {
   align-items: center;
 }
 .logo {
+  display: flex;
   height: 45px;
-  width: 125px;
-  margin-left: 20%;
+  width: 100%;
+  margin-left: 10%;
+  align-items:center;
 }
 .img {
-  width: 8em;
+  width: 45px;
   height: 45px;
   cursor: pointer;
+  border-radius: 50%;
 }
-
+.logotitle{
+  font-size:large;
+  font-weight: bold;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-left: 0.5em;
+}
 .center {
   height: 91vh;
   width: 100%;
   /* background-image: linear-gradient(to top, #ffffff 0%, #ffffff); */
-  box-shadow: inset 0px 15px 15px -18px rgb(171, 204, 237);
+  border-top: 1px solid rgb(224, 224, 224);
 }
 
 .tophead {

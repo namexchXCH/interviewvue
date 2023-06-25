@@ -3,7 +3,7 @@
        
         <Row class="row1">
                 <Col span="1"></Col>
-                <Col span="22">
+                <Col span="22" class="col222222">
                    <div class="col-div1">
                         <div class="div1" v-for="(item, index) in ToolCategory" :key="index">
                             <div class="div2" @click="getalltool(item)">
@@ -334,6 +334,10 @@ export default {
     height: 17%;
     width: 100%;
 
+}
+.col222222{
+    height: 100%;
+    overflow: auto;
 }
 .col-div1{
     height: 100%;

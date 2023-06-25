@@ -84,8 +84,11 @@ export default {
                    this.markdown = res.data.data.memberText;
                 }else{
                     this.$Message.info(res.data.message);
+                    this.markdown = "还没有内容"
                 }
-           }).catch((res) => {});
+           }).catch((res) => {
+            this.markdown = "还没有内容"
+           });
 
         },
 
@@ -148,7 +151,7 @@ export default {
 .cebian{
     height: 95%;
     width: 15em;
-    box-shadow: 0 0 10px rgb(217, 226, 241);
+    box-shadow: 0 0 10px rgb(226, 237, 255);
     overflow: auto;
     
 
@@ -174,6 +177,7 @@ export default {
 }
 .Sider1::-webkit-scrollbar{
     width: 0.1em;
+    
 }
 .center{
     height: 100%;
